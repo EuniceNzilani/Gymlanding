@@ -20,15 +20,18 @@ export default function Home() {
       style={{
         backgroundImage: "url('/background.jpg')",
         backgroundSize: 'cover',
-        backgroundPosition: 'center -18px',
+        backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
-        minHeight: '100vh',
+        backgroundColor: '#f8f8f8',
+        minHeight: 'auto',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         position: 'relative',
         marginTop: '-60px',
+        marginBottom: '0',
         paddingTop: '0px',
+        paddingBottom: '0px',
         overflow: 'hidden'
       }}
     >
@@ -56,11 +59,11 @@ export default function Home() {
         }}/>
       </div>
 
-      <div style={{width: '100%', maxWidth: 1400, padding: isMobile ? '2rem 1rem' : '3rem 5rem', position: 'relative', zIndex: 2}}>
-        <div style={{display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? '2rem' : '2rem', alignItems: 'center'}}>
+      <div style={{width: '100%', maxWidth: 1400, padding: isMobile ? '2rem 1rem 0' : '3rem 5rem 0', position: 'relative', zIndex: 2, margin: 0, marginTop: isMobile ? '1.5rem' : '2rem'}}>
+        <div style={{display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? '1rem' : '1rem', alignItems: 'flex-start', margin: 0}}>
           {/* Left: Content (now inside a white card) */}
-          <div style={{display: 'flex', justifyContent: isMobile ? 'center' : 'flex-end', order: isMobile ? 2 : 1, padding: isMobile ? '0 0.5rem' : '0'}}>
-            <div style={{background: '#ffffff', borderRadius: 16, padding: isMobile ? '1rem 1rem' : '2rem', boxShadow: '0 15px 35px rgba(2,6,23,0.08)', maxWidth: isMobile ? '100%' : 700, width: '100%', marginRight: isMobile ? 0 : '2rem', marginTop: isMobile ? 0 : '60px', maxHeight: isMobile ? 'calc(100vh - 100px)' : 'auto', overflowY: isMobile ? 'auto' : 'visible'}}>
+          <div style={{display: 'flex', justifyContent: isMobile ? 'center' : 'flex-end', order: isMobile ? 2 : 1, padding: isMobile ? '0 0.5rem' : '0', margin: 0}}>
+            <div style={{background: '#ffffff', borderRadius: 16, padding: isMobile ? '1rem 1rem' : '2rem', paddingTop: isMobile ? '2rem' : '3.5rem', boxShadow: '0 15px 35px rgba(2,6,23,0.08)', maxWidth: isMobile ? '100%' : 700, width: '100%', marginRight: isMobile ? 0 : '2rem', marginTop: 0, marginBottom: 0, maxHeight: isMobile ? 'calc(100vh - 100px)' : 'auto', overflowY: isMobile ? 'auto' : 'visible'}}>
               <div style={{display: 'flex', gap: '0.75rem', alignItems: 'center', marginBottom: isMobile ? '1rem' : '1.5rem'}}>
                 <div style={{width: isMobile ? 28 : 32, height: isMobile ? 28 : 32, borderRadius: 8, background: 'linear-gradient(135deg,#ff8a00,#ff5e00)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: isMobile ? '1rem' : '1.2rem'}}>💪</div>
                 <span style={{fontSize: isMobile ? '0.75rem' : '0.85rem', fontWeight: 700, color: '#ff8a00', textTransform: 'uppercase', letterSpacing: '0.5px'}}>M-Gym</span>
@@ -136,7 +139,7 @@ export default function Home() {
           </div>
 
           {/* Right: Phone Mockup (image) */}
-          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', order: isMobile ? 1 : 2}}>
+          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', order: isMobile ? 1 : 2, margin: 0}}>
             <div style={{position: 'relative', width: isMobile ? 240 : 320, height: isMobile ? 450 : 600}}>
               <img src="/phone%20mockup.png" alt="Phone mockup" style={{width: '100%', height: '100%', objectFit: 'cover', borderRadius: 40, boxShadow: '0 25px 50px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,138,0,0.1)'}} />
             </div>

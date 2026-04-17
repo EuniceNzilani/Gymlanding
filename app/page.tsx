@@ -4,7 +4,7 @@ import Footer from './components/Footer'
 
 export default function Page() {
 	return (
-		<main style={{paddingTop: '0px'}}>
+		<main style={{paddingTop: '0px', paddingBottom: '0px', margin: '0px'}}>
 			<Home />
 
 			<Footer />

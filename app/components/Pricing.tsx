@@ -39,7 +39,7 @@ export default function Pricing() {
             <ul style={{color: '#475569', textAlign: 'left', marginBottom: '1rem', fontSize: isMobile ? '0.9rem' : '1rem'}}>
               <li style={{marginBottom: '0.5rem'}}>Everything in lower tier</li>
               <li style={{marginBottom: '0.5rem'}}>Priority onboarding</li>
-              <li>Faster support SLA</li>
+              <li>24/7 Priority support</li>
             </ul>
             <button style={{background: '#CC5500', color: '#fff', border: 'none', padding: '0.6rem 1rem', borderRadius: 8, fontWeight: 700, cursor: 'pointer', fontSize: isMobile ? '0.9rem' : '1rem'}}>Get Started</button>
           </div>
@@ -59,9 +59,8 @@ export default function Pricing() {
             <div style={{fontWeight: 800, color: '#0f172a', marginBottom: '0.5rem', fontSize: isMobile ? '0.95rem' : '1rem'}}>200–500 customers</div>
             <div style={{fontSize: isMobile ? '1.1rem' : '1.25rem', fontWeight: 900, color: '#0f172a', marginBottom: '0.75rem'}}>Ksh 60<span style={{fontSize: isMobile ? '0.65rem' : '0.75rem', fontWeight:700}}> / customer / month</span></div>
             <ul style={{color: '#475569', textAlign: 'left', marginBottom: '1rem', fontSize: isMobile ? '0.9rem' : '1rem'}}>
-              <li style={{marginBottom: '0.5rem'}}>Priority SLA</li>
+              <li style={{marginBottom: '0.5rem'}}>24/7 Priority support</li>
               <li style={{marginBottom: '0.5rem'}}>Advanced integrations</li>
-              <li>Account management</li>
             </ul>
             <button style={{background: '#CC5500', color: '#fff', border: 'none', padding: '0.6rem 1rem', borderRadius: 8, fontWeight: 700, cursor: 'pointer', fontSize: isMobile ? '0.9rem' : '1rem'}}>Get Started</button>
           </div>
@@ -70,7 +69,7 @@ export default function Pricing() {
             <div style={{fontWeight: 800, color: '#0f172a', marginBottom: '0.5rem', fontSize: isMobile ? '0.95rem' : '1rem'}}>500+ customers</div>
             <div style={{fontSize: isMobile ? '1.1rem' : '1.25rem', fontWeight: 900, color: '#0f172a', marginBottom: '0.75rem'}}>Custom</div>
             <ul style={{color: '#475569', textAlign: 'left', marginBottom: '1rem', fontSize: isMobile ? '0.9rem' : '1rem'}}>
-              <li style={{marginBottom: '0.5rem'}}>Enterprise SLA</li>
+              <li style={{marginBottom: '0.5rem'}}>24/7 Enterprise support</li>
               <li style={{marginBottom: '0.5rem'}}>Custom contract & pricing</li>
               <li>White-glove support</li>
             </ul>

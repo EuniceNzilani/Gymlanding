@@ -16,7 +16,7 @@ export default function Footer() {
   }, [])
 
   return (
-    <footer style={{background: '#CC5500', color: '#ffffff', padding: isMobile ? '1.5rem 1rem 0.5rem' : '1rem 1rem 0.5rem', borderTop: '4px solid rgba(255,255,255,0.06)'}}>
+    <footer style={{background: '#CC5500', color: '#ffffff', padding: isMobile ? '1.5rem 1rem 0.5rem' : '1rem 1rem 0.5rem', borderTop: '4px solid rgba(255,255,255,0.06)', margin: 0}}>
       <div style={{width: '100%', maxWidth: 1400, margin: '0 auto'}}>
         <div style={{display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(220px, 1fr))', gap: isMobile ? '1.5rem' : '1.25rem', marginBottom: '1.5rem', paddingBottom: '1rem', borderBottom: '1px solid #334155'}}>
           <div>
