@@ -15,7 +15,7 @@ export default function Faqs() {
   }, [])
 
   return (
-    <section id="faq" style={{background: '#ffd4a3', padding: isMobile ? '3rem 1rem' : '6rem 2rem'}}>
+    <section id="faq" style={{background: '#ffd4a3', padding: isMobile ? '2rem 1rem' : '4rem 2rem', width: '100%', boxSizing: 'border-box'}}>
       <div style={{width: '100%', maxWidth: 900, margin: '0 auto'}}>
         <div style={{marginBottom: '3rem', textAlign: 'center'}}>
           <h2 style={{fontSize: isMobile ? 'clamp(1.75rem, 6vw, 2.5rem)' : '2.5rem', margin: '0 0 1rem 0', color: '#0f172a', fontWeight: 900}}>Frequently Asked Questions</h2>

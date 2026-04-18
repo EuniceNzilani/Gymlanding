@@ -28,10 +28,10 @@ export default function Home() {
         alignItems: 'center',
         justifyContent: 'center',
         position: 'relative',
-        marginTop: '-60px',
+        marginTop: 0,
         marginBottom: '0',
-        paddingTop: '0px',
-        paddingBottom: '0px',
+        paddingTop: isMobile ? '1rem' : '2rem',
+        paddingBottom: isMobile ? '2rem' : '3rem',
         overflow: 'hidden'
       }}
     >
@@ -59,11 +59,11 @@ export default function Home() {
         }}/>
       </div>
 
-      <div style={{width: '100%', maxWidth: 1400, padding: isMobile ? '2rem 1rem 0' : '3rem 5rem 0', position: 'relative', zIndex: 2, margin: 0, marginTop: isMobile ? '1.5rem' : '2rem'}}>
-        <div style={{display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? '1rem' : '1rem', alignItems: 'flex-start', margin: 0}}>
+      <div style={{width: '100%', maxWidth: 1400, padding: isMobile ? '1rem 1rem 0' : '2rem 3rem 0', position: 'relative', zIndex: 2, margin: 0}}>
+        <div style={{display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? '1.5rem' : '2rem', alignItems: 'flex-start', margin: 0}}>
           {/* Left: Content (now inside a white card) */}
-          <div style={{display: 'flex', justifyContent: isMobile ? 'center' : 'flex-end', order: isMobile ? 2 : 1, padding: isMobile ? '0 0.5rem' : '0', margin: 0}}>
-            <div style={{background: '#ffffff', borderRadius: 16, padding: isMobile ? '1rem 1rem' : '2rem', paddingTop: isMobile ? '2rem' : '3.5rem', boxShadow: '0 15px 35px rgba(2,6,23,0.08)', maxWidth: isMobile ? '100%' : 700, width: '100%', marginRight: isMobile ? 0 : '2rem', marginTop: 0, marginBottom: 0, maxHeight: isMobile ? 'calc(100vh - 100px)' : 'auto', overflowY: isMobile ? 'auto' : 'visible'}}>
+          <div style={{display: 'flex', justifyContent: isMobile ? 'center' : 'flex-end', order: isMobile ? 2 : 1, padding: isMobile ? '0' : '0', margin: 0}}>
+            <div style={{background: 'linear-gradient(180deg, rgba(255,255,255,0.35), rgba(255,255,255,0.25)), rgba(255,138,0,0.02)', backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)', borderRadius: 16, padding: isMobile ? '1rem' : '2rem', paddingTop: isMobile ? '1.5rem' : '3.5rem', boxShadow: '0 15px 35px rgba(2,6,23,0.12)', border: '1px solid rgba(255,255,255,0.16)', maxWidth: isMobile ? '100%' : 700, width: '100%', marginRight: isMobile ? 0 : '1rem', marginLeft: isMobile ? '0.5rem' : 0, marginTop: 0, marginBottom: 0, maxHeight: 'none', overflowY: 'visible'}}>
               <div style={{display: 'flex', gap: '0.75rem', alignItems: 'center', marginBottom: isMobile ? '1rem' : '1.5rem'}}>
                 <div style={{width: isMobile ? 28 : 32, height: isMobile ? 28 : 32, borderRadius: 8, background: 'linear-gradient(135deg,#ff8a00,#ff5e00)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: isMobile ? '1rem' : '1.2rem'}}>💪</div>
                 <span style={{fontSize: isMobile ? '0.75rem' : '0.85rem', fontWeight: 700, color: '#ff8a00', textTransform: 'uppercase', letterSpacing: '0.5px'}}>M-Gym</span>

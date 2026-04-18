@@ -15,8 +15,8 @@ export default function Features() {
   }, [])
 
   return (
-    <section id="features" style={{background: '#ffd9b3', padding: isMobile ? '3rem 1rem' : '6rem 4rem'}}>
-      <div style={{width: '100%', maxWidth: 1200, margin: '0 auto'}}>
+    <section id="features" style={{background: '#ffd9b3', padding: isMobile ? '2rem 1rem' : '4rem 4rem', width: '100%', boxSizing: 'border-box'}}>
+      <div style={{width: '100%', maxWidth: 1200, margin: '0 auto', boxSizing: 'border-box'}}>
         <div style={{marginBottom: '3rem'}}>
           <h2 style={{fontSize: isMobile ? 'clamp(1.75rem, 6vw, 2.5rem)' : '2.5rem', margin: '0 0 1rem 0', color: '#0f172a', fontWeight: 900}}>Powerful Features</h2>
           <p style={{fontSize: '1.1rem', color: '#64748b', margin: 0, maxWidth: 600}}>Everything you need to run a thriving gym business</p>

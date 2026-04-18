@@ -16,41 +16,41 @@ export default function Footer() {
   }, [])
 
   return (
-    <footer style={{background: '#CC5500', color: '#ffffff', padding: isMobile ? '1.5rem 1rem 0.5rem' : '1rem 1rem 0.5rem', borderTop: '4px solid rgba(255,255,255,0.06)', margin: 0}}>
+    <footer style={{background: '#CC5500', color: '#ffffff', padding: isMobile ? '1.5rem 1rem 0.75rem' : '1.25rem 2rem 1rem'}}>
       <div style={{width: '100%', maxWidth: 1400, margin: '0 auto'}}>
-        <div style={{display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(220px, 1fr))', gap: isMobile ? '1.5rem' : '1.25rem', marginBottom: '1.5rem', paddingBottom: '1rem', borderBottom: '1px solid #334155'}}>
+        <div style={{display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(220px, 1fr))', gap: isMobile ? '1.25rem' : '1.25rem', marginBottom: '1.25rem', paddingBottom: '1rem', borderBottom: '1px solid rgba(255,255,255,0.04)'}}>
           <div>
-            <div style={{fontWeight: 800, fontSize: isMobile ? '1.1rem' : '1.25rem', color: '#ffffff', marginBottom: '0.5rem'}}>M-Gym</div>
-                <p style={{color: '#ffffff', fontSize: isMobile ? '0.82rem' : '0.88rem', lineHeight: 1.5, margin: 0}}>
+            <div style={{fontWeight: 800, fontSize: isMobile ? '1.05rem' : '1.25rem', color: '#ffffff', marginBottom: '0.5rem'}}>M-Gym</div>
+                <p style={{color: '#94a3b8', fontSize: isMobile ? '0.82rem' : '0.88rem', lineHeight: 1.5, margin: 0}}>
               Transform your gym business with powerful management tools designed for modern fitness studios.
             </p>
           </div>
           <div>
-            <h4 style={{color: '#fff', fontWeight: 700, margin: '0 0 0.6rem 0', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.5px'}}>Product</h4>
+            <h4 style={{color: '#fb923c', fontWeight: 700, margin: '0 0 0.6rem 0', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.5px'}}>Product</h4>
             <ul style={{listStyle: 'none', padding: 0, margin: 0, display: 'grid', gap: '0.5rem'}}>
-              <li><a href="/features" style={{color: '#ffffff', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#ffffff'}>Features</a></li>
-              <li><a href="/faq" style={{color: '#ffffff', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#ffffff'}>FAQ</a></li>
-              <li><a href="/pricing" style={{color: '#ffffff', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#ffffff'}>Pricing</a></li>
+              <li><a href="/features" style={{color: '#cbd5e1', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#cbd5e1'}>Features</a></li>
+              <li><a href="/faq" style={{color: '#cbd5e1', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#cbd5e1'}>FAQ</a></li>
+              <li><a href="/pricing" style={{color: '#cbd5e1', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#cbd5e1'}>Pricing</a></li>
             </ul>
           </div>
           <div>
-            <h4 style={{color: '#fff', fontWeight: 700, margin: '0 0 0.6rem 0', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.5px'}}>Support</h4>
+            <h4 style={{color: '#fb923c', fontWeight: 700, margin: '0 0 0.6rem 0', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.5px'}}>Support</h4>
             <ul style={{listStyle: 'none', padding: 0, margin: 0, display: 'grid', gap: '0.5rem'}}>
-              <li><a href="#" style={{color: '#ffffff', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#ffffff'}>Help Center</a></li>
-              <li><a href="#" style={{color: '#ffffff', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#ffffff'}>Documentation</a></li>
+              <li><a href="#contact" style={{color: '#cbd5e1', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#cbd5e1'}>Help Center</a></li>
+              <li><a href="/documentation" style={{color: '#cbd5e1', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#cbd5e1'}>Documentation</a></li>
               <li>
-                <a href="#" onClick={(e) => { e.preventDefault(); setShowSupport(true); }} style={{color: '#ffffff', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#ffffff'}>Support</a>
+                <a href="#contact" style={{color: '#cbd5e1', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#cbd5e1'}>Support</a>
               </li>
               
             </ul>
           </div>
           <div>
-            <h4 style={{color: '#fff', fontWeight: 700, margin: '0 0 0.6rem 0', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.5px'}}>Legal</h4>
+            <h4 style={{color: '#fb923c', fontWeight: 700, margin: '0 0 0.6rem 0', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.5px'}}>Legal</h4>
             <ul style={{listStyle: 'none', padding: 0, margin: 0, display: 'grid', gap: '0.5rem'}}>
-              <li><a href="#" style={{color: '#ffffff', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#ffffff'}>Privacy</a></li>
-              <li><a href="#" style={{color: '#ffffff', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#ffffff'}>Terms</a></li>
-              <li><a href="#" style={{color: '#ffffff', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#ffffff'}>Security</a></li>
-              <li><a href="#" style={{color: '#ffffff', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#ffffff'}>Compliance</a></li>
+              <li><a href="#" style={{color: '#cbd5e1', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#cbd5e1'}>Privacy</a></li>
+              <li><a href="#" style={{color: '#cbd5e1', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#cbd5e1'}>Terms</a></li>
+              <li><a href="#" style={{color: '#cbd5e1', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#cbd5e1'}>Security</a></li>
+              <li><a href="#" style={{color: '#cbd5e1', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#cbd5e1'}>Compliance</a></li>
             </ul>
           </div>
         </div>

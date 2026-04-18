@@ -6,15 +6,37 @@
 html, body {
   margin: 0;
   padding: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 main, section {
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 
 /* Optional: make anchor default have no underline (keeps navbar clean) */
 a {
   text-decoration: none;
   color: inherit;
+}
+
+/* Ensure images are responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Base text sizing for better mobile readability */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
 }

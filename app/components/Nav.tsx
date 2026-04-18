@@ -5,21 +5,42 @@ import { useState, useEffect } from 'react'
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false)
-  const [isMobile, setIsMobile] = useState(true)
+  const [mounted, setMounted] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
     // Check screen size on mount and resize
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 640)
+      setIsMobile(window.innerWidth < 768)
     }
 
     // Initial check
     handleResize()
+    setMounted(true)
 
     // Add resize listener
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
   }, [])
+
+  // Only render mobile menu on actual mobile devices (under 768px)
+  // Desktop navbar shows on screens 768px and larger
+  if (!mounted) {
+    return (
+      <nav style={{position: 'fixed', top: 0, left: 0, right: 0, background: '#fafafa', boxShadow: '0 2px 8px rgba(0,0,0,0.06)', zIndex: 1000}}>
+        <div style={{maxWidth: 1400, margin: '0 auto', padding: '0 1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', height: '60px'}}>
+          <div style={{fontWeight: 800, fontSize: 'clamp(1.1rem, 5vw, 1.5rem)', background: 'linear-gradient(135deg,#ff8a00,#ff5e00)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text'}}>M-Gym</div>
+          <div style={{display: 'flex', gap: '1.5rem', alignItems: 'center'}}>
+            <Link href="/" style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500}}>Home</Link>
+            <Link href="/features" style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500}}>Features</Link>
+            <Link href="/pricing" style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500}}>Pricing</Link>
+            <Link href="/testimonials" style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500}}>Testimonials</Link>
+            <button style={{padding: '0.65rem 1.75rem', background: 'linear-gradient(135deg,#ff8a00,#ff5e00)', color: '#fff', border: 'none', borderRadius: 25, fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer'}}>Sign In</button>
+          </div>
+        </div>
+      </nav>
+    )
+  }
 
   return (
     <>
@@ -47,12 +68,12 @@ export default function Nav() {
       {isMobile && (
         <>
           {/* Mobile Top Bar with Logo and Hamburger */}
-          <div style={{position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000, padding: '0.75rem 1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: '#fafafa', boxShadow: '0 2px 8px rgba(0,0,0,0.06)', height: '60px'}}>
+          <div style={{position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000, paddingLeft: '1rem', paddingRight: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: '#fafafa', boxShadow: '0 2px 8px rgba(0,0,0,0.06)', height: '60px'}}>
             {/* M-Gym Logo */}
-            <div style={{fontWeight: 800, fontSize: '1.25rem', background: 'linear-gradient(135deg,#ff8a00,#ff5e00)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text'}}>M-Gym</div>
+            <div style={{fontWeight: 800, fontSize: '1.25rem', background: 'linear-gradient(135deg,#ff8a00,#ff5e00)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', minWidth: 0, overflow: 'hidden'}}>M-Gym</div>
             
             {/* Hamburger Button */}
-            <button onClick={() => setIsOpen(!isOpen)} style={{flexDirection: 'column', gap: '0.35rem', background: 'none', border: 'none', cursor: 'pointer', padding: '0.5rem', display: 'flex'}}>
+            <button onClick={() => setIsOpen(!isOpen)} style={{flexDirection: 'column', gap: '0.35rem', background: 'none', border: 'none', cursor: 'pointer', padding: '0.25rem', display: 'flex', flexShrink: 0}}>
               <span style={{width: '1.5rem', height: '0.2rem', background: '#1f2937', borderRadius: '0.1rem', transition: 'all 0.3s', transform: isOpen ? 'rotate(45deg) translateY(0.55rem)' : 'rotate(0)'}}></span>
               <span style={{width: '1.5rem', height: '0.2rem', background: '#1f2937', borderRadius: '0.1rem', transition: 'all 0.3s', opacity: isOpen ? 0 : 1}}></span>
               <span style={{width: '1.5rem', height: '0.2rem', background: '#1f2937', borderRadius: '0.1rem', transition: 'all 0.3s', transform: isOpen ? 'rotate(-45deg) translateY(-0.55rem)' : 'rotate(0)'}}></span>
