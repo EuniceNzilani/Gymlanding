@@ -22,16 +22,16 @@ export default function Partners() {
         <h2 style={{fontSize: isMobile ? '1.25rem' : '1.5rem', marginBottom: '0.5rem', color: '#0f172a', fontWeight: 800}}>Our Partners</h2>
         <p style={{color: '#64748b', marginBottom: '1.25rem'}}>Trusted by gyms and studios across the region.</p>
 
-        <div style={{display: 'flex', gap: isMobile ? '0.75rem' : '1.5rem', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap'}}>
-          <div style={{width: isMobile ? 120 : 160, height: isMobile ? 60 : 80, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'transparent', borderRadius: 8}}>
+        <div style={{display: 'flex', gap: isMobile ? '1rem' : '2rem', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap'}}>
+          <div style={{width: isMobile ? 160 : 240, height: isMobile ? 80 : 120, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'transparent', borderRadius: 8}}>
             <img src={logoSrc} alt="Partner logo" style={{maxWidth: '100%', maxHeight: '100%', objectFit: 'contain'}} />
           </div>
 
-          <div style={{width: isMobile ? 120 : 160, height: isMobile ? 60 : 80, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'transparent', borderRadius: 8}}>
+          <div style={{width: isMobile ? 160 : 240, height: isMobile ? 80 : 120, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'transparent', borderRadius: 8}}>
             <img src={logoSrc} alt="Partner logo" style={{maxWidth: '100%', maxHeight: '100%', objectFit: 'contain'}} />
           </div>
 
-          <div style={{width: isMobile ? 120 : 160, height: isMobile ? 60 : 80, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'transparent', borderRadius: 8}}>
+          <div style={{width: isMobile ? 160 : 240, height: isMobile ? 80 : 120, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'transparent', borderRadius: 8}}>
             <img src={logoSrc} alt="Partner logo" style={{maxWidth: '100%', maxHeight: '100%', objectFit: 'contain'}} />
           </div>
         </div>

@@ -63,7 +63,7 @@ export default function ContactUs() {
             <textarea aria-label="Message" placeholder="Describe your issue..." required style={{ gridColumn: isMobile ? '1' : '1 / span 2', minHeight: 120, padding: 12, borderRadius: 8, border: '1px solid rgba(15,23,42,0.08)', width: '100%', boxSizing: 'border-box' }} />
 
             <div style={{ gridColumn: isMobile ? '1' : '1 / span 2', display: 'flex', justifyContent: 'flex-start' }}>
-              <button type="submit" style={{ background: '#10b981', color: '#fff', padding: '10px 16px', borderRadius: 8, border: 'none', cursor: 'pointer' }}>Send Message</button>
+              <button type="submit" style={{ background: '#fb923c', color: '#fff', padding: '10px 16px', borderRadius: 8, border: 'none', cursor: 'pointer' }}>Send Message</button>
             </div>
           </form>
         </div>

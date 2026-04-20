@@ -32,9 +32,9 @@ export default function Nav() {
           <div style={{fontWeight: 800, fontSize: 'clamp(1.1rem, 5vw, 1.5rem)', background: 'linear-gradient(135deg,#ff8a00,#ff5e00)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text'}}>M-Gym</div>
           <div style={{display: 'flex', gap: '1.5rem', alignItems: 'center'}}>
             <Link href="/" style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500}}>Home</Link>
-            <Link href="/features" style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500}}>Features</Link>
-            <Link href="/pricing" style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500}}>Pricing</Link>
-            <Link href="/testimonials" style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500}}>Testimonials</Link>
+            <Link href="/#features" style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500}}>Features</Link>
+            <Link href="/#pricing" style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500}}>Pricing</Link>
+            <Link href="/#testimonials" style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500}}>Testimonials</Link>
             <button style={{padding: '0.65rem 1.75rem', background: 'linear-gradient(135deg,#ff8a00,#ff5e00)', color: '#fff', border: 'none', borderRadius: 25, fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer'}}>Sign In</button>
           </div>
         </div>
@@ -53,9 +53,9 @@ export default function Nav() {
             {/* Desktop Menu */}
             <div style={{display: 'flex', gap: '1.5rem', alignItems: 'center'}}>
               <Link href="/" style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500, transition: 'color 0.3s', cursor: 'pointer'}}>Home</Link>
-              <Link href="/features" style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500, transition: 'color 0.3s', cursor: 'pointer'}}>Features</Link>
-              <Link href="/pricing" style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500, transition: 'color 0.3s', cursor: 'pointer'}}>Pricing</Link>
-              <Link href="/testimonials" style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500, transition: 'color 0.3s', cursor: 'pointer'}}>Testimonials</Link>
+              <Link href="/#features" style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500, transition: 'color 0.3s', cursor: 'pointer'}}>Features</Link>
+              <Link href="/#pricing" style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500, transition: 'color 0.3s', cursor: 'pointer'}}>Pricing</Link>
+              <Link href="/#testimonials" style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500, transition: 'color 0.3s', cursor: 'pointer'}}>Testimonials</Link>
               <button style={{padding: '0.65rem 1.75rem', background: 'linear-gradient(135deg,#ff8a00,#ff5e00)', color: '#fff', border: 'none', borderRadius: 25, fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer', boxShadow: '0 4px 12px rgba(255,130,0,0.25)', transition: 'all 0.3s'}}>
                 Sign In
               </button>
@@ -84,9 +84,9 @@ export default function Nav() {
           {isOpen && (
             <div style={{position: 'fixed', top: 60, left: 0, right: 0, background: '#fafafa', borderTop: '1px solid #e5e7eb', display: 'flex', flexDirection: 'column', gap: '0.5rem', padding: '1rem', maxHeight: 'calc(100vh - 60px)', overflowY: 'auto', zIndex: 999}}>
               <Link href="/" onClick={() => setIsOpen(false)} style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500, padding: '0.75rem 1rem', borderRadius: '0.5rem', transition: 'background 0.3s', cursor: 'pointer'}} onMouseEnter={(e) => e.currentTarget.style.background = '#f3f4f6'} onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}>Home</Link>
-              <Link href="/features" onClick={() => setIsOpen(false)} style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500, padding: '0.75rem 1rem', borderRadius: '0.5rem', transition: 'background 0.3s', cursor: 'pointer'}} onMouseEnter={(e) => e.currentTarget.style.background = '#f3f4f6'} onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}>Features</Link>
-              <Link href="/pricing" onClick={() => setIsOpen(false)} style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500, padding: '0.75rem 1rem', borderRadius: '0.5rem', transition: 'background 0.3s', cursor: 'pointer'}} onMouseEnter={(e) => e.currentTarget.style.background = '#f3f4f6'} onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}>Pricing</Link>
-              <Link href="/testimonials" onClick={() => setIsOpen(false)} style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500, padding: '0.75rem 1rem', borderRadius: '0.5rem', transition: 'background 0.3s', cursor: 'pointer'}} onMouseEnter={(e) => e.currentTarget.style.background = '#f3f4f6'} onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}>Testimonials</Link>
+              <Link href="/#features" onClick={() => setIsOpen(false)} style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500, padding: '0.75rem 1rem', borderRadius: '0.5rem', transition: 'background 0.3s', cursor: 'pointer'}} onMouseEnter={(e) => e.currentTarget.style.background = '#f3f4f6'} onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}>Features</Link>
+              <Link href="/#pricing" onClick={() => setIsOpen(false)} style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500, padding: '0.75rem 1rem', borderRadius: '0.5rem', transition: 'background 0.3s', cursor: 'pointer'}} onMouseEnter={(e) => e.currentTarget.style.background = '#f3f4f6'} onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}>Pricing</Link>
+              <Link href="/#testimonials" onClick={() => setIsOpen(false)} style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500, padding: '0.75rem 1rem', borderRadius: '0.5rem', transition: 'background 0.3s', cursor: 'pointer'}} onMouseEnter={(e) => e.currentTarget.style.background = '#f3f4f6'} onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}>Testimonials</Link>
               <button style={{width: '100%', padding: '0.65rem 1rem', background: 'linear-gradient(135deg,#ff8a00,#ff5e00)', color: '#fff', border: 'none', borderRadius: 25, fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer', boxShadow: '0 4px 12px rgba(255,130,0,0.25)', transition: 'all 0.3s', marginTop: '0.5rem'}}>
                 Sign In
               </button>

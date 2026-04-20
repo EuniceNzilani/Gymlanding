@@ -1,6 +1,8 @@
 'use client'
 import Home from './components/Home'
+import Features from './components/Features'
 import Pricing from './components/Pricing'
+import Faqs from './components/Faqs'
 import Testimonials from './components/Testimonials'
 import ContactUs from './components/ContactUs'
 import Partners from './components/Partners'
@@ -11,11 +13,15 @@ export default function Page() {
 		<main style={{paddingTop: '0px', paddingBottom: '0px', margin: '0px'}}>
 			<Home />
 
+			<Features />
+
 			<Pricing />
 
-			<ContactUs />
+			<Faqs />
 
 			<Testimonials />
+
+			<ContactUs />
 
 			<Partners />
 

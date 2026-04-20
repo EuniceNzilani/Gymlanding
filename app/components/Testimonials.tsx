@@ -47,13 +47,14 @@ export default function Testimonials() {
                 const cardPadding = isMobile ? '0.75rem' : '1rem'
                 const nameFontSize = isLeft ? (isMobile ? '1rem' : '1.125rem') : (isMobile ? '0.95rem' : '1rem')
                 const roleFontSize = isLeft ? (isMobile ? '0.9rem' : '0.95rem') : '0.85rem'
+                const cardHeight = isMobile ? 'auto' : 200
 
                 return (
                   <div key={item.id} style={{ flex: 1, padding: isMobile ? '0.5rem 0' : '0' }}>
                     <div style={{ position: 'relative' }}>
                       {/* outer edge circles removed; joined circles remain inside the card */}
 
-                      <div style={{ background: cardBg, borderRadius: cardRadius, padding: cardPadding, minHeight: isMobile ? 'auto' : 160, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', position: 'relative' }}>
+                      <div style={{ background: cardBg, borderRadius: cardRadius, padding: cardPadding, height: cardHeight, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', position: 'relative' }}>
                         {/* Joined circles inside card (infinity-like) */}
                         {isLeft && (
                           <div style={{ position: 'absolute', top: (isMobile ? 8 : 12), left: (isMobile ? 8 : 12), width: (isMobile ? 34 : 42), height: (isMobile ? 18 : 22), pointerEvents: 'none', zIndex: 2 }}>

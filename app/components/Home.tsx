@@ -48,7 +48,7 @@ export default function Home() {
           <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', order: isMobile ? 2 : 1}}>
             <div style={{display: 'flex', gap: '0.5rem', alignItems: 'center', marginBottom: '1rem'}}>
               <div style={{width: 12, height: 12, borderRadius: 3, background: 'linear-gradient(135deg,#cc5500,#b8621b)', flexShrink: 0}}/>
-              <span style={{fontSize: '0.875rem', fontWeight: 700, color: 'rgba(255,255,255,0.9)', textTransform: 'uppercase', letterSpacing: '0.05em'}}>M-Gym Premium</span>
+              <span style={{fontSize: '0.875rem', fontWeight: 700, color: 'rgba(255,255,255,0.9)', textTransform: 'uppercase', letterSpacing: '0.05em'}}>M-Gym</span>
             </div>
 
             <h1 style={{fontSize: isMobile ? '1.875rem' : '3rem', margin: '0 0 1rem 0', lineHeight: 1.2, color: '#fff', fontWeight: 900}}>
