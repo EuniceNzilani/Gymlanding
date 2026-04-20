@@ -36,7 +36,7 @@ export default function Privacy() {
   return (
     <div id="privacy" style={{backgroundColor: '#ffd9b3', paddingTop: isMobile ? '1.5rem' : '3rem', paddingBottom: '3rem'}}>
       {/* Header Section */}
-      <div style={{backgroundColor: '#ffffff', paddingTop: isMobile ? '2rem' : '3rem', paddingBottom: isMobile ? '2rem' : '3rem', marginBottom: '2rem', borderBottom: '1px solid #e5e7eb'}}>
+      <div style={{backgroundColor: 'rgba(226,232,240,0.7)', paddingTop: isMobile ? '2rem' : '3rem', paddingBottom: isMobile ? '2rem' : '3rem', marginBottom: '2rem', borderBottom: '1px solid #e5e7eb'}}>
         <div style={{maxWidth: 1200, margin: '0 auto', padding: isMobile ? '0 1rem' : '0 2rem', textAlign: 'center'}}>
           <div style={{display: 'inline-block', backgroundColor: '#d1f4e0', padding: '0.5rem 1rem', borderRadius: '20px', marginBottom: '1rem'}}>
             <span style={{color: '#CC5500', fontSize: '0.85rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
@@ -68,20 +68,20 @@ export default function Privacy() {
                     key={section.id}
                     onClick={() => scrollToSection(section.id)}
                     style={{
-                      background: activeSection === section.id ? '#f0f9ff' : '#ffffff',
-                      border: activeSection === section.id ? '2px solid #CC5500' : '1px solid #e5e7eb',
-                      padding: '0.75rem 1rem',
-                      borderRadius: '8px',
-                      textAlign: 'left',
-                      cursor: 'pointer',
-                      transition: 'all 0.2s',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.75rem',
-                      fontSize: '0.9rem',
-                      fontWeight: activeSection === section.id ? 600 : 500,
-                      color: activeSection === section.id ? '#CC5500' : '#475569',
-                    }}
+                          background: activeSection === section.id ? 'rgba(255,255,255,0.92)' : 'rgba(255,255,255,0.6)',
+                          border: activeSection === section.id ? '2px solid rgba(15,23,42,0.06)' : '1px solid rgba(15,23,42,0.04)',
+                          padding: '0.75rem 1rem',
+                          borderRadius: '8px',
+                          textAlign: 'left',
+                          cursor: 'pointer',
+                          transition: 'all 0.2s',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '0.75rem',
+                          fontSize: '0.9rem',
+                          fontWeight: activeSection === section.id ? 600 : 500,
+                          color: activeSection === section.id ? '#CC5500' : '#475569',
+                        }}
                   >
                     <span style={{fontSize: '1.1rem'}}>{section.icon}</span>
                     {section.label}
@@ -100,13 +100,13 @@ export default function Privacy() {
                 key={section.id}
                 onClick={() => scrollToSection(section.id)}
                 style={{
-                  background: activeSection === section.id ? '#CC5500' : '#ffffff',
-                  border: '1px solid #e5e7eb',
+                  background: activeSection === section.id ? 'rgba(255,255,255,0.92)' : 'rgba(255,255,255,0.6)',
+                  border: '1px solid rgba(15,23,42,0.04)',
                   padding: '0.5rem 0.75rem',
                   borderRadius: '6px',
                   fontSize: '0.75rem',
                   fontWeight: activeSection === section.id ? 600 : 500,
-                  color: activeSection === section.id ? '#ffffff' : '#475569',
+                  color: activeSection === section.id ? '#CC5500' : '#475569',
                   cursor: 'pointer',
                   whiteSpace: 'nowrap',
                   transition: 'all 0.2s',
@@ -121,7 +121,7 @@ export default function Privacy() {
         {/* Content Area */}
         <div style={{display: 'grid', gap: '1.5rem'}}>
           {/* Data Protection */}
-          <div id="data-protection" style={{backgroundColor: '#ffffff', padding: isMobile ? '1.5rem' : '2rem', borderRadius: '12px', border: '1px solid #e5e7eb', scrollMarginTop: '2rem'}}>
+          <div id="data-protection" style={{backgroundColor: 'rgba(226,232,240,0.7)', padding: isMobile ? '1.5rem' : '2rem', borderRadius: '12px', border: '1px solid #e5e7eb', scrollMarginTop: '2rem'}}>
             <div style={{display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem'}}>
               <span style={{fontSize: '1.75rem'}}>🛡️</span>
               <h2 style={{fontSize: isMobile ? '1.25rem' : '1.5rem', fontWeight: 700, color: '#1e293b', margin: 0}}>Data Protection</h2>
@@ -139,7 +139,7 @@ export default function Privacy() {
           </div>
 
           {/* Data Collection */}
-          <div id="data-collection" style={{backgroundColor: '#ffffff', padding: isMobile ? '1.5rem' : '2rem', borderRadius: '12px', border: '1px solid #e5e7eb', scrollMarginTop: '2rem'}}>
+          <div id="data-collection" style={{backgroundColor: 'rgba(226,232,240,0.7)', padding: isMobile ? '1.5rem' : '2rem', borderRadius: '12px', border: '1px solid #e5e7eb', scrollMarginTop: '2rem'}}>
             <div style={{display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem'}}>
               <span style={{fontSize: '1.75rem'}}>📋</span>
               <h2 style={{fontSize: isMobile ? '1.25rem' : '1.5rem', fontWeight: 700, color: '#1e293b', margin: 0}}>Data Collection</h2>
@@ -148,7 +148,7 @@ export default function Privacy() {
               We collect various types of information to provide and improve our services:
             </p>
             <div style={{display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '1rem'}}>
-              <div style={{backgroundColor: '#f9fafb', padding: '1.25rem', borderRadius: '8px'}}>
+              <div style={{backgroundColor: 'rgba(226,232,240,0.7)', padding: '1.25rem', borderRadius: '8px'}}>
                 <h4 style={{fontSize: '0.95rem', fontWeight: 700, color: '#1e293b', marginBottom: '0.75rem'}}>Personal Information</h4>
                 <ul style={{fontSize: '0.9rem', color: '#475569', lineHeight: 1.6, marginLeft: '1.25rem', display: 'grid', gap: '0.5rem', margin: 0, paddingLeft: '1.25rem'}}>
                   <li>Name, email, phone number</li>
@@ -156,7 +156,7 @@ export default function Privacy() {
                   <li>Service usage preferences</li>
                 </ul>
               </div>
-              <div style={{backgroundColor: '#f9fafb', padding: '1.25rem', borderRadius: '8px'}}>
+              <div style={{backgroundColor: 'rgba(226,232,240,0.7)', padding: '1.25rem', borderRadius: '8px'}}>
                 <h4 style={{fontSize: '0.95rem', fontWeight: 700, color: '#1e293b', marginBottom: '0.75rem'}}>Technical Data</h4>
                 <ul style={{fontSize: '0.9rem', color: '#475569', lineHeight: 1.6, marginLeft: '1.25rem', display: 'grid', gap: '0.5rem', margin: 0, paddingLeft: '1.25rem'}}>
                   <li>IP addresses and device information</li>
@@ -168,7 +168,7 @@ export default function Privacy() {
           </div>
 
           {/* Data Usage */}
-          <div id="data-usage" style={{backgroundColor: '#ffffff', padding: isMobile ? '1.5rem' : '2rem', borderRadius: '12px', border: '1px solid #e5e7eb', scrollMarginTop: '2rem'}}>
+          <div id="data-usage" style={{backgroundColor: 'rgba(226,232,240,0.7)', padding: isMobile ? '1.5rem' : '2rem', borderRadius: '12px', border: '1px solid #e5e7eb', scrollMarginTop: '2rem'}}>
             <div style={{display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem'}}>
               <span style={{fontSize: '1.75rem'}}>👥</span>
               <h2 style={{fontSize: isMobile ? '1.25rem' : '1.5rem', fontWeight: 700, color: '#1e293b', margin: 0}}>Data Usage</h2>
@@ -186,7 +186,7 @@ export default function Privacy() {
           </div>
 
           {/* Data Sharing */}
-          <div id="data-sharing" style={{backgroundColor: '#ffffff', padding: isMobile ? '1.5rem' : '2rem', borderRadius: '12px', border: '1px solid #e5e7eb', scrollMarginTop: '2rem'}}>
+          <div id="data-sharing" style={{backgroundColor: 'rgba(226,232,240,0.7)', padding: isMobile ? '1.5rem' : '2rem', borderRadius: '12px', border: '1px solid #e5e7eb', scrollMarginTop: '2rem'}}>
             <div style={{display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem'}}>
               <span style={{fontSize: '1.75rem'}}>🔄</span>
               <h2 style={{fontSize: isMobile ? '1.25rem' : '1.5rem', fontWeight: 700, color: '#1e293b', margin: 0}}>Data Sharing</h2>
@@ -204,7 +204,7 @@ export default function Privacy() {
           </div>
 
           {/* Your Rights */}
-          <div id="your-rights" style={{backgroundColor: '#ffffff', padding: isMobile ? '1.5rem' : '2rem', borderRadius: '12px', border: '1px solid #e5e7eb', scrollMarginTop: '2rem'}}>
+          <div id="your-rights" style={{backgroundColor: 'rgba(226,232,240,0.7)', padding: isMobile ? '1.5rem' : '2rem', borderRadius: '12px', border: '1px solid #e5e7eb', scrollMarginTop: '2rem'}}>
             <div style={{display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem'}}>
               <span style={{fontSize: '1.75rem'}}>👁️</span>
               <h2 style={{fontSize: isMobile ? '1.25rem' : '1.5rem', fontWeight: 700, color: '#1e293b', margin: 0}}>Your Rights</h2>
@@ -223,7 +223,7 @@ export default function Privacy() {
           </div>
 
           {/* Data Retention */}
-          <div id="data-retention" style={{backgroundColor: '#ffffff', padding: isMobile ? '1.5rem' : '2rem', borderRadius: '12px', border: '1px solid #e5e7eb', scrollMarginTop: '2rem'}}>
+          <div id="data-retention" style={{backgroundColor: 'rgba(226,232,240,0.7)', padding: isMobile ? '1.5rem' : '2rem', borderRadius: '12px', border: '1px solid #e5e7eb', scrollMarginTop: '2rem'}}>
             <div style={{display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem'}}>
               <span style={{fontSize: '1.75rem'}}>🗑️</span>
               <h2 style={{fontSize: isMobile ? '1.25rem' : '1.5rem', fontWeight: 700, color: '#1e293b', margin: 0}}>Data Retention</h2>
@@ -237,7 +237,7 @@ export default function Privacy() {
           </div>
 
           {/* Policy Updates */}
-          <div id="policy-updates" style={{backgroundColor: '#ffffff', padding: isMobile ? '1.5rem' : '2rem', borderRadius: '12px', border: '1px solid #e5e7eb', scrollMarginTop: '2rem'}}>
+          <div id="policy-updates" style={{backgroundColor: 'rgba(226,232,240,0.7)', padding: isMobile ? '1.5rem' : '2rem', borderRadius: '12px', border: '1px solid #e5e7eb', scrollMarginTop: '2rem'}}>
             <div style={{display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem'}}>
               <span style={{fontSize: '1.75rem'}}>ℹ️</span>
               <h2 style={{fontSize: isMobile ? '1.25rem' : '1.5rem', fontWeight: 700, color: '#1e293b', margin: 0}}>Policy Updates</h2>

@@ -36,7 +36,7 @@ export default function Terms() {
   return (
     <div id="terms" style={{backgroundColor: '#ffd9b3', paddingTop: isMobile ? '1.5rem' : '3rem', paddingBottom: '3rem'}}>
       {/* Header Section */}
-      <div style={{backgroundColor: '#ffffff', paddingTop: isMobile ? '2rem' : '3rem', paddingBottom: isMobile ? '2rem' : '3rem', marginBottom: '2rem', borderBottom: '1px solid #e5e7eb'}}>
+      <div style={{backgroundColor: 'rgba(226,232,240,0.7)', paddingTop: isMobile ? '2rem' : '3rem', paddingBottom: isMobile ? '2rem' : '3rem', marginBottom: '2rem', borderBottom: '1px solid #e5e7eb'}}>
         <div style={{maxWidth: 1200, margin: '0 auto', padding: isMobile ? '0 1rem' : '0 2rem', textAlign: 'center'}}>
           <div style={{display: 'inline-block', backgroundColor: '#fef3c7', padding: '0.5rem 1rem', borderRadius: '20px', marginBottom: '1rem'}}>
             <span style={{color: '#d97706', fontSize: '0.85rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
@@ -68,8 +68,8 @@ export default function Terms() {
                     key={section.id}
                     onClick={() => scrollToSection(section.id)}
                     style={{
-                      background: activeSection === section.id ? '#fef3c7' : '#ffffff',
-                      border: activeSection === section.id ? '2px solid #d97706' : '1px solid #e5e7eb',
+                      background: activeSection === section.id ? 'rgba(255,255,255,0.92)' : 'rgba(255,255,255,0.6)',
+                      border: activeSection === section.id ? '2px solid rgba(15,23,42,0.06)' : '1px solid rgba(15,23,42,0.04)',
                       padding: '0.75rem 1rem',
                       borderRadius: '8px',
                       textAlign: 'left',
@@ -100,13 +100,13 @@ export default function Terms() {
                 key={section.id}
                 onClick={() => scrollToSection(section.id)}
                 style={{
-                  background: activeSection === section.id ? '#d97706' : '#ffffff',
-                  border: '1px solid #e5e7eb',
+                  background: activeSection === section.id ? 'rgba(255,255,255,0.92)' : 'rgba(255,255,255,0.6)',
+                  border: '1px solid rgba(15,23,42,0.04)',
                   padding: '0.5rem 0.75rem',
                   borderRadius: '6px',
                   fontSize: '0.75rem',
                   fontWeight: activeSection === section.id ? 600 : 500,
-                  color: activeSection === section.id ? '#ffffff' : '#475569',
+                  color: activeSection === section.id ? '#d97706' : '#475569',
                   cursor: 'pointer',
                   whiteSpace: 'nowrap',
                   transition: 'all 0.2s',
@@ -121,7 +121,7 @@ export default function Terms() {
         {/* Content Area */}
         <div style={{display: 'grid', gap: '1.5rem'}}>
           {/* Usage Rights */}
-          <div id="usage-rights" style={{backgroundColor: '#ffffff', padding: isMobile ? '1.5rem' : '2rem', borderRadius: '12px', border: '1px solid #e5e7eb', scrollMarginTop: '2rem'}}>
+          <div id="usage-rights" style={{backgroundColor: 'rgba(226,232,240,0.7)', padding: isMobile ? '1.5rem' : '2rem', borderRadius: '12px', border: '1px solid #e5e7eb', scrollMarginTop: '2rem'}}>
             <div style={{display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem'}}>
               <span style={{fontSize: '1.75rem'}}>⚖️</span>
               <h2 style={{fontSize: isMobile ? '1.25rem' : '1.5rem', fontWeight: 700, color: '#1e293b', margin: 0}}>Usage Rights</h2>
@@ -139,7 +139,7 @@ export default function Terms() {
           </div>
 
           {/* Acceptable Use */}
-          <div id="acceptable-use" style={{backgroundColor: '#ffffff', padding: isMobile ? '1.5rem' : '2rem', borderRadius: '12px', border: '1px solid #e5e7eb', scrollMarginTop: '2rem'}}>
+          <div id="acceptable-use" style={{backgroundColor: 'rgba(226,232,240,0.7)', padding: isMobile ? '1.5rem' : '2rem', borderRadius: '12px', border: '1px solid #e5e7eb', scrollMarginTop: '2rem'}}>
             <div style={{display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem'}}>
               <span style={{fontSize: '1.75rem'}}>✅</span>
               <h2 style={{fontSize: isMobile ? '1.25rem' : '1.5rem', fontWeight: 700, color: '#1e293b', margin: 0}}>Acceptable Use Policy</h2>
@@ -147,8 +147,8 @@ export default function Terms() {
             <p style={{fontSize: '0.95rem', color: '#475569', lineHeight: 1.7, marginBottom: '1.25rem'}}>
               You agree to use M-Gym in compliance with all applicable laws and regulations:
             </p>
-            <div style={{display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '1rem'}}>
-              <div style={{backgroundColor: '#f9fafb', padding: '1.25rem', borderRadius: '8px'}}>
+              <div style={{display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '1rem'}}>
+              <div style={{backgroundColor: 'rgba(226,232,240,0.7)', padding: '1.25rem', borderRadius: '8px'}}>
                 <h4 style={{fontSize: '0.95rem', fontWeight: 700, color: '#1e293b', marginBottom: '0.75rem'}}>Prohibited Activities</h4>
                 <ul style={{fontSize: '0.9rem', color: '#475569', lineHeight: 1.6, marginLeft: '1.25rem', display: 'grid', gap: '0.5rem', margin: 0, paddingLeft: '1.25rem'}}>
                   <li>Illegal or fraudulent activities</li>
@@ -156,7 +156,7 @@ export default function Terms() {
                   <li>Unauthorized data access</li>
                 </ul>
               </div>
-              <div style={{backgroundColor: '#f9fafb', padding: '1.25rem', borderRadius: '8px'}}>
+              <div style={{backgroundColor: 'rgba(226,232,240,0.7)', padding: '1.25rem', borderRadius: '8px'}}>
                 <h4 style={{fontSize: '0.95rem', fontWeight: 700, color: '#1e293b', marginBottom: '0.75rem'}}>Required Conduct</h4>
                 <ul style={{fontSize: '0.9rem', color: '#475569', lineHeight: 1.6, marginLeft: '1.25rem', display: 'grid', gap: '0.5rem', margin: 0, paddingLeft: '1.25rem'}}>
                   <li>Use their own credentials</li>
@@ -168,7 +168,7 @@ export default function Terms() {
           </div>
 
           {/* Service Limitations */}
-          <div id="service-limitations" style={{backgroundColor: '#ffffff', padding: isMobile ? '1.5rem' : '2rem', borderRadius: '12px', border: '1px solid #e5e7eb', scrollMarginTop: '2rem'}}>
+          <div id="service-limitations" style={{backgroundColor: 'rgba(226,232,240,0.7)', padding: isMobile ? '1.5rem' : '2rem', borderRadius: '12px', border: '1px solid #e5e7eb', scrollMarginTop: '2rem'}}>
             <div style={{display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem'}}>
               <span style={{fontSize: '1.75rem'}}>📋</span>
               <h2 style={{fontSize: isMobile ? '1.25rem' : '1.5rem', fontWeight: 700, color: '#1e293b', margin: 0}}>Service Limitations</h2>
@@ -186,7 +186,7 @@ export default function Terms() {
           </div>
 
           {/* Liability Limitations */}
-          <div id="liability" style={{backgroundColor: '#ffffff', padding: isMobile ? '1.5rem' : '2rem', borderRadius: '12px', border: '1px solid #e5e7eb', scrollMarginTop: '2rem'}}>
+          <div id="liability" style={{backgroundColor: 'rgba(226,232,240,0.7)', padding: isMobile ? '1.5rem' : '2rem', borderRadius: '12px', border: '1px solid #e5e7eb', scrollMarginTop: '2rem'}}>
             <div style={{display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem'}}>
               <span style={{fontSize: '1.75rem'}}>🛡️</span>
               <h2 style={{fontSize: isMobile ? '1.25rem' : '1.5rem', fontWeight: 700, color: '#1e293b', margin: 0}}>Liability Limitations</h2>
@@ -204,7 +204,7 @@ export default function Terms() {
           </div>
 
           {/* Intellectual Property */}
-          <div id="intellectual-property" style={{backgroundColor: '#ffffff', padding: isMobile ? '1.5rem' : '2rem', borderRadius: '12px', border: '1px solid #e5e7eb', scrollMarginTop: '2rem'}}>
+          <div id="intellectual-property" style={{backgroundColor: 'rgba(226,232,240,0.7)', padding: isMobile ? '1.5rem' : '2rem', borderRadius: '12px', border: '1px solid #e5e7eb', scrollMarginTop: '2rem'}}>
             <div style={{display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem'}}>
               <span style={{fontSize: '1.75rem'}}>©️</span>
               <h2 style={{fontSize: isMobile ? '1.25rem' : '1.5rem', fontWeight: 700, color: '#1e293b', margin: 0}}>Intellectual Property Rights</h2>
@@ -221,7 +221,7 @@ export default function Terms() {
           </div>
 
           {/* User Obligations */}
-          <div id="user-obligations" style={{backgroundColor: '#ffffff', padding: isMobile ? '1.5rem' : '2rem', borderRadius: '12px', border: '1px solid #e5e7eb', scrollMarginTop: '2rem'}}>
+          <div id="user-obligations" style={{backgroundColor: 'rgba(226,232,240,0.7)', padding: isMobile ? '1.5rem' : '2rem', borderRadius: '12px', border: '1px solid #e5e7eb', scrollMarginTop: '2rem'}}>
             <div style={{display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem'}}>
               <span style={{fontSize: '1.75rem'}}>👤</span>
               <h2 style={{fontSize: isMobile ? '1.25rem' : '1.5rem', fontWeight: 700, color: '#1e293b', margin: 0}}>User Obligations</h2>
@@ -240,7 +240,7 @@ export default function Terms() {
           </div>
 
           {/* Termination */}
-          <div id="termination" style={{backgroundColor: '#ffffff', padding: isMobile ? '1.5rem' : '2rem', borderRadius: '12px', border: '1px solid #e5e7eb', scrollMarginTop: '2rem'}}>
+          <div id="termination" style={{backgroundColor: 'rgba(226,232,240,0.7)', padding: isMobile ? '1.5rem' : '2rem', borderRadius: '12px', border: '1px solid #e5e7eb', scrollMarginTop: '2rem'}}>
             <div style={{display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem'}}>
               <span style={{fontSize: '1.75rem'}}>🔚</span>
               <h2 style={{fontSize: isMobile ? '1.25rem' : '1.5rem', fontWeight: 700, color: '#1e293b', margin: 0}}>Termination of Service</h2>
