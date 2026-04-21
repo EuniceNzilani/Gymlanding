@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from 'react'
+import { AnimatedSection } from './AnimatedSection'
 
 export default function Testimonials() {
   const [isMobile, setIsMobile] = useState(false)
@@ -34,26 +35,32 @@ export default function Testimonials() {
   return (
     <section id="testimonials" style={{ background: '#ffd9b3', padding: isMobile ? '3rem 1rem 4rem' : '3rem 2rem 4rem', width: '100%', boxSizing: 'border-box' }}>
       <div style={{ width: '100%', maxWidth: 1200, margin: '0 auto', textAlign: 'center' }}>
-        <h2 style={{ fontSize: isMobile ? 'clamp(1.5rem, 6vw, 2rem)' : '2rem', marginBottom: '0.5rem', color: '#0f172a', fontWeight: 800 }}>What Gym Owners Say</h2>
-        <p style={{ color: '#64748b', marginBottom: '2rem' }}>Real results from real businesses using M-Gym.</p>
+        <AnimatedSection direction="up" delay={0}>
+          <div>
+            <h2 style={{ fontSize: isMobile ? 'clamp(1.5rem, 6vw, 2rem)' : '2rem', marginBottom: '0.5rem', color: '#0f172a', fontWeight: 800 }}>What Gym Owners Say</h2>
+            <p style={{ color: '#64748b', marginBottom: '2rem' }}>Real results from real businesses using M-Gym.</p>
+          </div>
+        </AnimatedSection>
 
+        <AnimatedSection direction="up" delay={0.1}>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <div style={{ background: 'transparent', borderRadius: 12, padding: '1.25rem', textAlign: 'left', maxWidth: isMobile ? '100%' : 760 }}>
             <div style={{ display: isMobile ? 'block' : 'flex', gap: isMobile ? '0.5rem' : 0 }}>
               {items.slice(0, 2).map((item, idx) => {
                 const isLeft = idx === 0
-                const cardBg = isMobile ? 'rgba(248,250,252,0.98)' : (isLeft ? 'rgba(248,250,252,0.35)' : 'rgba(248,250,252,0.98)')
+                const cardBg = isMobile ? 'rgba(226,232,240,0.7)' : (isLeft ? 'rgba(226,232,240,0.35)' : 'rgba(226,232,240,0.7)')
                 const cardRadius = isMobile ? 12 : (isLeft ? '12px 0 0 12px' : '0 12px 12px 0')
                 const cardPadding = isMobile ? '0.75rem' : '1rem'
                 const nameFontSize = isLeft ? (isMobile ? '1rem' : '1.125rem') : (isMobile ? '0.95rem' : '1rem')
                 const roleFontSize = isLeft ? (isMobile ? '0.9rem' : '0.95rem') : '0.85rem'
+                const cardHeight = isMobile ? 'auto' : 200
 
                 return (
                   <div key={item.id} style={{ flex: 1, padding: isMobile ? '0.5rem 0' : '0' }}>
                     <div style={{ position: 'relative' }}>
                       {/* outer edge circles removed; joined circles remain inside the card */}
 
-                      <div style={{ background: cardBg, borderRadius: cardRadius, padding: cardPadding, minHeight: isMobile ? 'auto' : 160, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', position: 'relative' }}>
+                      <div style={{ background: cardBg, borderRadius: cardRadius, padding: cardPadding, height: cardHeight, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', position: 'relative' }}>
                         {/* Joined circles inside card (infinity-like) */}
                         {isLeft && (
                           <div style={{ position: 'absolute', top: (isMobile ? 8 : 12), left: (isMobile ? 8 : 12), width: (isMobile ? 34 : 42), height: (isMobile ? 18 : 22), pointerEvents: 'none', zIndex: 2 }}>
@@ -85,11 +92,14 @@ export default function Testimonials() {
             </div>
           </div>
         </div>
+        </AnimatedSection>
 
+        <AnimatedSection direction="up" delay={0.2}>
         <div style={{ display: 'flex', gap: 12, justifyContent: 'center', marginTop: 16 }}>
           <button aria-label="Previous testimonials" onClick={handlePrev} style={{ background: 'transparent', border: '1px solid rgba(15,23,42,0.08)', borderRadius: 8, width: 40, height: 40, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>&lt;</button>
           <button aria-label="Next testimonials" onClick={handleNext} style={{ background: 'transparent', border: '1px solid rgba(15,23,42,0.08)', borderRadius: 8, width: 40, height: 40, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>&gt;</button>
         </div>
+        </AnimatedSection>
       </div>
     </section>
   )

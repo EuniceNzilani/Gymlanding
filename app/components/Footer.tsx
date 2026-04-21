@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from 'react'
+import { AnimatedSection } from './AnimatedSection'
 
 export default function Footer() {
   const [showSupport, setShowSupport] = useState(false)
@@ -18,19 +19,20 @@ export default function Footer() {
   return (
     <footer style={{background: '#CC5500', color: '#ffffff', padding: isMobile ? '1.5rem 1rem 0.75rem' : '1.25rem 2rem 1rem'}}>
       <div style={{width: '100%', maxWidth: 1400, margin: '0 auto'}}>
+        <AnimatedSection direction="up" delay={0}>
         <div style={{display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(220px, 1fr))', gap: isMobile ? '1.25rem' : '1.25rem', marginBottom: '1.25rem', paddingBottom: '1rem', borderBottom: '1px solid rgba(255,255,255,0.04)'}}>
           <div>
             <div style={{fontWeight: 800, fontSize: isMobile ? '1.05rem' : '1.25rem', color: '#ffffff', marginBottom: '0.5rem'}}>M-Gym</div>
-                <p style={{color: '#94a3b8', fontSize: isMobile ? '0.82rem' : '0.88rem', lineHeight: 1.5, margin: 0}}>
+                <p style={{color: '#f5f5f5', fontSize: isMobile ? '0.82rem' : '0.88rem', lineHeight: 1.5, margin: 0}}>
               Transform your gym business with powerful management tools designed for modern fitness studios.
             </p>
           </div>
           <div>
             <h4 style={{color: '#fb923c', fontWeight: 700, margin: '0 0 0.6rem 0', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.5px'}}>Product</h4>
             <ul style={{listStyle: 'none', padding: 0, margin: 0, display: 'grid', gap: '0.5rem'}}>
-              <li><a href="/features" style={{color: '#cbd5e1', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#cbd5e1'}>Features</a></li>
-              <li><a href="/faq" style={{color: '#cbd5e1', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#cbd5e1'}>FAQ</a></li>
-              <li><a href="/pricing" style={{color: '#cbd5e1', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#cbd5e1'}>Pricing</a></li>
+              <li><a href="/" style={{color: '#cbd5e1', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#cbd5e1'}>Features</a></li>
+              <li><a href="/" style={{color: '#cbd5e1', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#cbd5e1'}>FAQ</a></li>
+              <li><a href="/" style={{color: '#cbd5e1', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#cbd5e1'}>Pricing</a></li>
             </ul>
           </div>
           <div>
@@ -47,16 +49,18 @@ export default function Footer() {
           <div>
             <h4 style={{color: '#fb923c', fontWeight: 700, margin: '0 0 0.6rem 0', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.5px'}}>Legal</h4>
             <ul style={{listStyle: 'none', padding: 0, margin: 0, display: 'grid', gap: '0.5rem'}}>
-              <li><a href="#" style={{color: '#cbd5e1', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#cbd5e1'}>Privacy</a></li>
-              <li><a href="#" style={{color: '#cbd5e1', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#cbd5e1'}>Terms</a></li>
-              <li><a href="#" style={{color: '#cbd5e1', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#cbd5e1'}>Security</a></li>
-              <li><a href="#" style={{color: '#cbd5e1', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#cbd5e1'}>Compliance</a></li>
+              <li><a href="/privacy" style={{color: '#cbd5e1', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => {e.currentTarget.style.color = '#ffd8b5'}} onMouseLeave={(e) => {e.currentTarget.style.color = '#cbd5e1'}}>Privacy</a></li>
+              <li><a href="/terms" style={{color: '#cbd5e1', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => {e.currentTarget.style.color = '#ffd8b5'}} onMouseLeave={(e) => {e.currentTarget.style.color = '#cbd5e1'}}>Terms</a></li>
             </ul>
           </div>
         </div>
+        </AnimatedSection>
+
+        <AnimatedSection direction="up" delay={0.1}>
         <div style={{textAlign: 'center', paddingTop: '0.5rem'}}>
-          <p style={{color: '#94a3b8', fontSize: isMobile ? '0.7rem' : '0.78rem', margin: 0}}>© 2026 M-Gym. All rights reserved.</p>
+          <p style={{color: '#f5f5f5', fontSize: isMobile ? '0.7rem' : '0.78rem', margin: 0}}>© 2026 M-Gym. All rights reserved.</p>
         </div>
+        </AnimatedSection>
         {showSupport && (
           <div onClick={() => setShowSupport(false)} style={{position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.45)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 60, padding: isMobile ? '1rem' : '0'}}>
             <div onClick={(e) => e.stopPropagation()} style={{width: isMobile ? '100%' : 'min(520px, 95%)', background: '#f7fff7', borderRadius: isMobile ? '8px' : '12px', padding: isMobile ? '1.25rem 1rem 1.5rem' : '1rem 1rem 1.25rem', boxShadow: '0 8px 30px rgba(2,6,23,0.35)', maxHeight: isMobile ? '90vh' : 'auto', overflowY: isMobile ? 'auto' : 'visible'}}>

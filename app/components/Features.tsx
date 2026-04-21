@@ -1,68 +1,64 @@
 "use client"
 
-import { useEffect, useState } from 'react'
-
 export default function Features() {
-  const [isMobile, setIsMobile] = useState(false)
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    handleResize()
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
-
   return (
-    <section id="features" style={{background: '#ffd9b3', padding: isMobile ? '2rem 1rem' : '4rem 4rem', width: '100%', boxSizing: 'border-box'}}>
-      <div style={{width: '100%', maxWidth: 1200, margin: '0 auto', boxSizing: 'border-box'}}>
-        <div style={{marginBottom: '3rem'}}>
-          <h2 style={{fontSize: isMobile ? 'clamp(1.75rem, 6vw, 2.5rem)' : '2.5rem', margin: '0 0 1rem 0', color: '#0f172a', fontWeight: 900}}>Powerful Features</h2>
-          <p style={{fontSize: '1.1rem', color: '#64748b', margin: 0, maxWidth: 600}}>Everything you need to run a thriving gym business</p>
+    <section id="features" style={{padding: '3.5rem 1rem', width: '100%', boxSizing: 'border-box', background: '#ffd4a3'}}>
+      <div style={{maxWidth: 1100, margin: '0 auto', padding: '2rem'}}>
+        {/* Header */}
+        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 16, marginBottom: 28}}>
+          <div>
+            <h2 style={{margin: 0, fontSize: '1.8rem', fontWeight: 900, color: '#0f172a'}}>Powerful Features 💪</h2>
+            <p style={{marginTop: 8, color: '#64748b', maxWidth: 600, lineHeight: 1.5}}>Everything you need to run a thriving gym business</p>
+          </div>
         </div>
-
-        <div style={{display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? '2rem' : '3rem', alignItems: 'start'}}>
-          {/* Left: image */}
-          <div style={{display: 'flex', alignItems: 'flex-start', justifyContent: 'center', order: isMobile ? 2 : 1}}>
-            <img src="/Features.png" alt="Gym Owners diagram" style={{width: '100%', maxWidth: 480, borderRadius: 16, boxShadow: '0 10px 40px rgba(0,0,0,0.08)'}} />
+        <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16}}>
+          {/* Card 1 */}
+          <div style={{background: 'linear-gradient(180deg, rgba(255,255,255,0.35), rgba(255,255,255,0.25)), rgba(255,138,0,0.02)', backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)', padding: 20, borderRadius: 12, boxShadow: '0 15px 35px rgba(2,6,23,0.12)', border: '1px solid rgba(255,255,255,0.16)', color: '#0f172a'}}>
+            <div style={{fontSize: 32, marginBottom: 12}}>📈</div>
+            <h3 style={{margin: '0 0 8px 0', fontSize: '1.1rem', fontWeight: 800}}>Dashboard</h3>
+            <p style={{marginTop: 8, fontSize: '0.9rem', lineHeight: 1.5}}>Track revenue and growth with charts. Monitor your gym performance in real-time from anywhere.</p>
           </div>
 
-          {/* Right: features content */}
-          <div style={{display: 'grid', gap: '1.5rem', order: isMobile ? 1 : 2}}>
-            <div style={{background: '#ffe8cc', padding: isMobile ? '1.25rem' : '1.75rem', borderRadius: 16, boxShadow: '0 4px 16px rgba(0,0,0,0.04)', border: '1px solid #f1f5f9', transition: 'all 0.3s'}}>
-              <h3 style={{margin: '0 0 0.75rem 0', fontSize: isMobile ? '1rem' : '1.15rem', color: '#0f172a', fontWeight: 700}}>For Gym Owners</h3>
-              <ul style={{marginTop: '1rem', padding: 0, listStyle: 'none', color: '#475569', lineHeight: 1.8, fontSize: isMobile ? '0.9rem' : '0.95rem', display: 'grid', gap: '0.75rem'}}>
-                <li style={{display: 'flex', gap: '0.75rem', alignItems: 'flex-start'}}>
-                  <span style={{color: '#ff8a00', fontWeight: 700, flexShrink: 0}}>📈</span>
-                  <span><strong>Dashboard</strong> - Track revenue and growth with charts</span>
-                </li>
-                <li style={{display: 'flex', gap: '0.75rem', alignItems: 'flex-start'}}>
-                  <span style={{color: '#ff8a00', fontWeight: 700, flexShrink: 0}}>💰</span>
-                  <span><strong>Payment Tracking</strong> - Never chase payments again</span>
-                </li>
-                <li style={{display: 'flex', gap: '0.75rem', alignItems: 'flex-start'}}>
-                  <span style={{color: '#ff8a00', fontWeight: 700, flexShrink: 0}}>👔</span>
-                  <span><strong>Staff Control</strong> - Add staff, set permissions, track performance</span>
-                </li>
-                <li style={{display: 'flex', gap: '0.75rem', alignItems: 'flex-start'}}>
-                  <span style={{color: '#ff8a00', fontWeight: 700, flexShrink: 0}}>📋</span>
-                  <span><strong>Plans & Pricing</strong> - Create custom membership plans</span>
-                </li>
-                <li style={{display: 'flex', gap: '0.75rem', alignItems: 'flex-start'}}>
-                  <span style={{color: '#ff8a00', fontWeight: 700, flexShrink: 0}}>🏃</span>
-                  <span><strong>Workouts & Diet</strong> - Create programs and meal plans</span>
-                </li>
-                <li style={{display: 'flex', gap: '0.75rem', alignItems: 'flex-start'}}>
-                  <span style={{color: '#ff8a00', fontWeight: 700, flexShrink: 0}}>📝</span>
-                  <span><strong>Activity Log</strong> - Track all gym activities automatically</span>
-                </li>
-                <li style={{display: 'flex', gap: '0.75rem', alignItems: 'flex-start'}}>
-                  <span style={{color: '#ff8a00', fontWeight: 700, flexShrink: 0}}>📣</span>
-                  <span><strong>Announcements</strong> - Schedule and send messages</span>
-                </li>
-              </ul>
-            </div>
+          {/* Card 2 */}
+          <div style={{background: 'linear-gradient(180deg, rgba(255,255,255,0.35), rgba(255,255,255,0.25)), rgba(255,138,0,0.02)', color: '#0f172a', padding: 20, borderRadius: 12, border: '1px solid rgba(255,255,255,0.16)', backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)', boxShadow: '0 15px 35px rgba(2,6,23,0.12)'}}>
+            <div style={{fontSize: 32, marginBottom: 12}}>💰</div>
+            <h3 style={{margin: '0 0 8px 0', fontSize: '1.1rem', fontWeight: 800}}>Payment Tracking</h3>
+            <p style={{marginTop: 8, fontSize: '0.9rem', lineHeight: 1.5}}>Never chase payments again. M-Pesa, cash, card, and bank transfers all in one place.</p>
+          </div>
+
+          {/* Card 3 */}
+          <div style={{background: 'linear-gradient(180deg, rgba(255,255,255,0.35), rgba(255,255,255,0.25)), rgba(255,138,0,0.02)', color: '#0f172a', padding: 20, borderRadius: 12, border: '1px solid rgba(255,255,255,0.16)', backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)', boxShadow: '0 15px 35px rgba(2,6,23,0.12)'}}>
+            <div style={{fontSize: 32, marginBottom: 12}}>👔</div>
+            <h3 style={{margin: '0 0 8px 0', fontSize: '1.1rem', fontWeight: 800}}>Staff Control</h3>
+            <p style={{marginTop: 8, fontSize: '0.9rem', lineHeight: 1.5}}>Add staff, set permissions, and track performance. Manage your team efficiently with role-based access.</p>
+          </div>
+
+          {/* Card 4 */}
+          <div style={{background: 'linear-gradient(180deg, rgba(255,255,255,0.35), rgba(255,255,255,0.25)), rgba(255,138,0,0.02)', color: '#0f172a', padding: 20, borderRadius: 12, border: '1px solid rgba(255,255,255,0.16)', backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)', boxShadow: '0 15px 35px rgba(2,6,23,0.12)'}}>
+            <div style={{fontSize: 32, marginBottom: 12}}>📋</div>
+            <h3 style={{margin: '0 0 8px 0', fontSize: '1.1rem', fontWeight: 800}}>Plans & Pricing</h3>
+            <p style={{marginTop: 8, fontSize: '0.9rem', lineHeight: 1.5}}>Create custom membership plans. Flexible pricing that works for your gym and your members.</p>
+          </div>
+
+          {/* Card 5 */}
+          <div style={{background: 'linear-gradient(180deg, rgba(255,255,255,0.35), rgba(255,255,255,0.25)), rgba(255,138,0,0.02)', color: '#0f172a', padding: 20, borderRadius: 12, border: '1px solid rgba(255,255,255,0.16)', backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)', boxShadow: '0 15px 35px rgba(2,6,23,0.12)'}}>
+            <div style={{fontSize: 32, marginBottom: 12}}>🏃</div>
+            <h3 style={{margin: '0 0 8px 0', fontSize: '1.1rem', fontWeight: 800}}>Workouts & Diet</h3>
+            <p style={{marginTop: 8, fontSize: '0.9rem', lineHeight: 1.5}}>Create programs and meal plans for your members. Help them achieve their fitness goals faster.</p>
+          </div>
+
+          {/* Card 6 */}
+          <div style={{background: 'linear-gradient(180deg, rgba(255,255,255,0.35), rgba(255,255,255,0.25)), rgba(255,138,0,0.02)', color: '#0f172a', padding: 20, borderRadius: 12, border: '1px solid rgba(255,255,255,0.16)', backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)', boxShadow: '0 15px 35px rgba(2,6,23,0.12)'}}>
+            <div style={{fontSize: 32, marginBottom: 12}}>📝</div>
+            <h3 style={{margin: '0 0 8px 0', fontSize: '1.1rem', fontWeight: 800}}>Activity Log</h3>
+            <p style={{marginTop: 8, fontSize: '0.9rem', lineHeight: 1.5}}>Track all gym activities automatically. Keep records of member attendance and engagement.</p>
+          </div>
+
+          {/* Card 7 */}
+          <div style={{background: 'linear-gradient(180deg, rgba(255,255,255,0.35), rgba(255,255,255,0.25)), rgba(255,138,0,0.02)', color: '#0f172a', padding: 20, borderRadius: 12, border: '1px solid rgba(255,255,255,0.16)', backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)', boxShadow: '0 15px 35px rgba(2,6,23,0.12)'}}>
+            <div style={{fontSize: 32, marginBottom: 12}}>📣</div>
+            <h3 style={{margin: '0 0 8px 0', fontSize: '1.1rem', fontWeight: 800}}>Announcements</h3>
+            <p style={{marginTop: 8, fontSize: '0.9rem', lineHeight: 1.5}}>Schedule and send messages to your members. Keep them engaged and informed about events.</p>
           </div>
         </div>
       </div>

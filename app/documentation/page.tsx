@@ -6,7 +6,7 @@ export const metadata = {
 
 export default function DocPage() {
   return (
-    <main style={{minHeight: '100vh', background: '#fff'}}>
+    <main style={{minHeight: '100vh', background: '#ffd9b3'}}>
       <Documentation />
     </main>
   )

@@ -1,6 +1,8 @@
 "use client"
 
+import Image from 'next/image'
 import { useEffect, useState } from 'react'
+import { AnimatedSection, AnimatedItem } from './AnimatedSection'
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false)
@@ -18,11 +20,6 @@ export default function Home() {
     <section
       id="home"
       style={{
-        backgroundImage: "url('/background.jpg')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundColor: '#f8f8f8',
         minHeight: 'auto',
         display: 'flex',
         alignItems: 'center',
@@ -30,120 +27,124 @@ export default function Home() {
         position: 'relative',
         marginTop: 0,
         marginBottom: '0',
-        paddingTop: isMobile ? '1rem' : '2rem',
-        paddingBottom: isMobile ? '2rem' : '3rem',
+        paddingTop: isMobile ? '2rem' : '3rem',
+        paddingBottom: isMobile ? '3rem' : '4rem',
         overflow: 'hidden'
       }}
     >
-      <div style={{position: 'absolute', top: '-10%', right: '-5%', width: isMobile ? 200 : 400, height: isMobile ? 200 : 400, borderRadius: '50%', background: 'rgba(255,138,0,0.08)', filter: 'blur(60px)', pointerEvents: 'none'}}/>
-      <div style={{position: 'absolute', bottom: '-10%', left: '-5%', width: isMobile ? 150 : 300, height: isMobile ? 150 : 300, borderRadius: '50%', background: 'rgba(255,138,0,0.06)', filter: 'blur(60px)', pointerEvents: 'none'}}/>
-      <div style={{position: 'absolute', top: 'calc(50% - 150px)', left: '10%', width: isMobile ? 200 : 300, height: isMobile ? 200 : 300, borderRadius: '50%', background: 'radial-gradient(circle, rgba(255,138,0,0.85) 0%, rgba(255,100,0,0.7) 50%, rgba(255,80,0,0.4) 100%)', filter: 'blur(45px)', pointerEvents: 'none'}}/>
+      <Image src="/background.jpg" alt="" priority fill style={{objectFit: 'cover', filter: 'brightness(0.96)'}} />
+      {/* Decorative gradient orbs - purple theme */}
+      <div style={{position: 'absolute', top: '-15%', right: '-10%', width: isMobile ? 250 : 500, height: isMobile ? 250 : 500, borderRadius: '50%', background: 'rgba(236,72,153,0.15)', filter: 'blur(80px)', pointerEvents: 'none'}}/>
+      <div style={{position: 'absolute', bottom: '-20%', left: '-8%', width: isMobile ? 200 : 400, height: isMobile ? 200 : 400, borderRadius: '50%', background: 'rgba(167,139,250,0.2)', filter: 'blur(70px)', pointerEvents: 'none'}}/>
 
-      {/* overlay to dim the image (adjust rgba to darken/lighten) */}
-      <div style={{position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.32)', zIndex: 0, pointerEvents: 'none'}}/>
+      {/* Subtle overlay */}
+      <div style={{position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.14)', zIndex: 1, pointerEvents: 'none'}}/>
 
-      {/* frosted overlay with only a thin blurred border (center kept clear) */}
-      <div style={{position: 'absolute', inset: 0, borderRadius: 0, background: 'rgba(255,255,255,0.04)', boxShadow: 'inset 0 0 120px rgba(0,0,0,0.12)', zIndex: 1, pointerEvents: 'none', overflow: 'hidden'}}>
-        {/* subtle inner gradient to soften edges */}
-        <div style={{position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))'}}/>
+      <div style={{width: '100%', maxWidth: 1400, padding: isMobile ? '1rem 1rem' : '2rem 4rem', position: 'relative', zIndex: 2, margin: 0}}>
+        <div style={{display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? '2rem' : '3rem', alignItems: 'center', margin: 0}}>
+          
+          {/* Left: Content */}
+          <AnimatedSection direction="left" delay={0.1}>
+            <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', order: isMobile ? 2 : 1}}>
+              <div style={{display: 'flex', gap: '0.5rem', alignItems: 'center', marginBottom: '1rem'}}>
+                <div style={{width: 12, height: 12, borderRadius: 3, background: 'linear-gradient(135deg,#FF7A1A,#FF5A00)', boxShadow: '0 6px 12px rgba(255,122,26,0.22)', flexShrink: 0}}/>
+                <span style={{fontSize: '0.875rem', fontWeight: 700, color: 'rgba(255,255,255,0.9)', textTransform: 'uppercase', letterSpacing: '0.05em'}}>M-Gym</span>
+                </div>
 
-        {/* masked element that applies a small (2px) backdrop blur only around the edges */}
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          WebkitMaskImage: 'radial-gradient(ellipse at center, transparent 85%, black 100%)',
-          maskImage: 'radial-gradient(ellipse at center, transparent 85%, black 100%)',
-          backdropFilter: 'blur(2px) saturate(110%)',
-          WebkitBackdropFilter: 'blur(2px) saturate(110%)',
-          pointerEvents: 'none'
-        }}/>
-      </div>
-
-      <div style={{width: '100%', maxWidth: 1400, padding: isMobile ? '1rem 1rem 0' : '2rem 3rem 0', position: 'relative', zIndex: 2, margin: 0}}>
-        <div style={{display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? '1.5rem' : '2rem', alignItems: 'flex-start', margin: 0}}>
-          {/* Left: Content (now inside a white card) */}
-          <div style={{display: 'flex', justifyContent: isMobile ? 'center' : 'flex-end', order: isMobile ? 2 : 1, padding: isMobile ? '0' : '0', margin: 0}}>
-            <div style={{background: 'linear-gradient(180deg, rgba(255,255,255,0.35), rgba(255,255,255,0.25)), rgba(255,138,0,0.02)', backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)', borderRadius: 16, padding: isMobile ? '1rem' : '2rem', paddingTop: isMobile ? '1.5rem' : '3.5rem', boxShadow: '0 15px 35px rgba(2,6,23,0.12)', border: '1px solid rgba(255,255,255,0.16)', maxWidth: isMobile ? '100%' : 700, width: '100%', marginRight: isMobile ? 0 : '1rem', marginLeft: isMobile ? '0.5rem' : 0, marginTop: 0, marginBottom: 0, maxHeight: 'none', overflowY: 'visible'}}>
-              <div style={{display: 'flex', gap: '0.75rem', alignItems: 'center', marginBottom: isMobile ? '1rem' : '1.5rem'}}>
-                <div style={{width: isMobile ? 28 : 32, height: isMobile ? 28 : 32, borderRadius: 8, background: 'linear-gradient(135deg,#ff8a00,#ff5e00)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: isMobile ? '1rem' : '1.2rem'}}>💪</div>
-                <span style={{fontSize: isMobile ? '0.75rem' : '0.85rem', fontWeight: 700, color: '#ff8a00', textTransform: 'uppercase', letterSpacing: '0.5px'}}>M-Gym</span>
-              </div>
-
-              <h1 style={{fontSize: isMobile ? 'clamp(1.3rem, 5vw, 2.5rem)' : '3.5rem', margin: '0 0 1rem 0', lineHeight: 1.1, color: '#0f172a', fontWeight: 900}}>
-                Grow Your Gym & <span style={{background: 'linear-gradient(135deg,#ff8a00,#ff5e00)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text'}}>Boost Revenue</span>
+              <h1 style={{fontSize: isMobile ? '1.875rem' : '3rem', margin: '0 0 1rem 0', lineHeight: 1.2, color: '#fff', fontWeight: 900}}>
+                Grow Your Gym & <span style={{background: 'linear-gradient(135deg,#FF7A1A,#FF5A00)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', textShadow: '0 6px 18px rgba(255,122,26,0.12)'}}>Boost Revenue</span>
               </h1>
 
-              <p style={{color: '#475569', fontSize: isMobile ? '0.85rem' : '1.1rem', marginBottom: isMobile ? '1.5rem' : '2.5rem', lineHeight: 1.6, maxWidth: '100%'}}>
-                <strong>Stop Losing Money & Members Because Of:</strong><br/>
-                ❌ Members forgetting to pay (costing you thousands monthly)<br/>
-                ❌ Empty classes because nobody knows the schedule<br/>
-                ❌ Spending hours on paperwork instead of growing your business<br/>
-                ❌ Members quitting because they see no progress<br/>
-                ❌ Staff confusion and miscommunication
+              <p style={{color: 'rgba(255,255,255,0.85)', fontSize: '1rem', marginBottom: '2rem', lineHeight: 1.7, maxWidth: '90%'}}>
+                Stop losing money and members. Automate payments, manage schedules, track member progress, and scale your business effortlessly with our intelligent gym management platform.
               </p>
 
-              {/* App Store Buttons */}
-              <div style={{display: 'flex', gap: '1rem', marginBottom: '3rem', flexWrap: 'wrap'}}>
+              {/* CTA Button */}
+              <div style={{display: 'flex', gap: '1rem', marginBottom: '3rem'}}>
                 <button style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: isMobile ? '0.5rem' : '0.75rem',
-                  padding: isMobile ? '0.65rem 1rem' : '0.85rem 1.5rem',
-                  background: '#000',
+                  justifyContent: 'center',
+                  gap: '0.5rem',
+                  padding: '0.75rem 2rem',
+                  background: 'linear-gradient(135deg,#FF7A1A,#FF5A00)',
                   color: '#fff',
                   border: 'none',
-                  borderRadius: 10,
-                  fontSize: isMobile ? '0.75rem' : '0.95rem',
+                  borderRadius: '0.5rem',
+                  fontSize: '1rem',
                   fontWeight: 600,
                   cursor: 'pointer',
-                  transition: 'all 0.3s',
-                  boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 10px 25px rgba(204,85,0,0.3)',
                   whiteSpace: 'nowrap'
-                }}>
-                  <span style={{fontSize: isMobile ? '1rem' : '1.3rem'}}>▶️</span>
-                  <div>
-                    <div style={{fontSize: isMobile ? '0.6rem' : '0.7rem', opacity: 0.8}}>Get it on</div>
-                    <div style={{fontSize: isMobile ? '0.8rem' : '1rem', fontWeight: 700}}>Google Play</div>
+                }} onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 15px 35px rgba(204,85,0,0.4)'; }} onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 10px 25px rgba(204,85,0,0.3)'; }}>
+                  <span>📱</span>
+                  <div style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-start', lineHeight: 1.2}}>
+                    <div style={{fontSize: '0.7rem', color: '#ffffff', fontWeight: 700}}>Get it on</div>
+                    <div style={{fontSize: '0.9rem', fontWeight: 800, color: '#ffffff'}}>Google Play</div>
                   </div>
                 </button>
               </div>
 
               {/* Key Benefits */}
-              <div style={{display: 'grid', gap: isMobile ? '0.75rem' : '1rem'}}>
-                <div style={{fontWeight: 700, fontSize: isMobile ? '0.8rem' : '0.95rem', textTransform: 'uppercase', letterSpacing: '0.5px', color: '#ff8a00'}}>Your gains include:</div>
-                <div style={{display: 'grid', gap: isMobile ? '0.6rem' : '0.75rem'}}>
+              <div style={{display: 'grid', gap: '1rem'}}>
+                <div style={{fontWeight: 600, fontSize: '0.875rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'rgba(255,255,255,0.8)'}}>What you gain:</div>
+                <div style={{display: 'grid', gap: '0.75rem'}}>
                   <div style={{display: 'flex', gap: '0.75rem', alignItems: 'flex-start'}}>
-                    <span style={{color: '#ff8a00', fontWeight: 700, fontSize: '1.2rem', marginTop: '-2px', flexShrink: 0}}>✓</span>
+                    <div style={{width: 20, height: 20, borderRadius: '50%', background: 'rgba(204,85,0,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '2px', fontSize: '0.75rem'}}>✓</div>
                     <div>
-                      <div style={{fontWeight: 600, color: '#0f172a', fontSize: isMobile ? '0.85rem' : '1rem'}}>Automated Payments</div>
-                      <div style={{fontSize: isMobile ? '0.8rem' : '0.9rem', color: '#64748b'}}>Never chase payments again</div>
+                      <div style={{fontWeight: 600, color: '#fff', fontSize: '0.95rem'}}>Automated Payments</div>
+                      <div style={{fontSize: '0.85rem', color: 'rgba(255,255,255,0.75)'}}>Never chase payments again</div>
                     </div>
                   </div>
                   <div style={{display: 'flex', gap: '0.75rem', alignItems: 'flex-start'}}>
-                    <span style={{color: '#ff8a00', fontWeight: 700, fontSize: '1.2rem', marginTop: '-2px', flexShrink: 0}}>✓</span>
+                    <div style={{width: 20, height: 20, borderRadius: '50%', background: 'rgba(204,85,0,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '2px', fontSize: '0.75rem'}}>✓</div>
                     <div>
-                      <div style={{fontWeight: 600, color: '#0f172a', fontSize: isMobile ? '0.85rem' : '1rem'}}>24/7 Member Portal</div>
-                      <div style={{fontSize: isMobile ? '0.8rem' : '0.9rem', color: '#64748b'}}>Workouts, diet plans, attendance tracking</div>
+                      <div style={{fontWeight: 600, color: '#fff', fontSize: '0.95rem'}}>24/7 Member Portal</div>
+                      <div style={{fontSize: '0.85rem', color: 'rgba(255,255,255,0.75)'}}>Workouts, diet plans, attendance tracking</div>
                     </div>
                   </div>
                   <div style={{display: 'flex', gap: '0.75rem', alignItems: 'flex-start'}}>
-                    <span style={{color: '#ff8a00', fontWeight: 700, fontSize: '1.2rem', marginTop: '-2px', flexShrink: 0}}>✓</span>
+                    <div style={{width: 20, height: 20, borderRadius: '50%', background: 'rgba(204,85,0,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '2px', fontSize: '0.75rem'}}>✓</div>
                     <div>
-                      <div style={{fontWeight: 600, color: '#0f172a', fontSize: isMobile ? '0.85rem' : '1rem'}}>Real-time Dashboard</div>
-                      <div style={{fontSize: isMobile ? '0.8rem' : '0.9rem', color: '#64748b'}}>Track revenue, attendance, and growth</div>
+                      <div style={{fontWeight: 600, color: '#fff', fontSize: '0.95rem'}}>Real-time Dashboard</div>
+                      <div style={{fontSize: '0.85rem', color: 'rgba(255,255,255,0.75)'}}>Track revenue, attendance, and growth</div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </AnimatedSection>
 
-          {/* Right: Phone Mockup (image) */}
-          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', order: isMobile ? 1 : 2, margin: 0}}>
-            <div style={{position: 'relative', width: isMobile ? 240 : 320, height: isMobile ? 450 : 600}}>
-              <img src="/phone%20mockup.png" alt="Phone mockup" style={{width: '100%', height: '100%', objectFit: 'cover', borderRadius: 40, boxShadow: '0 25px 50px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,138,0,0.1)'}} />
+          {/* Right: Phone Mockup Display */}
+          <AnimatedSection direction="right" delay={0.2}>
+            <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', order: isMobile ? 1 : 2, position: 'relative'}}>
+            <div style={{position: 'relative', width: '100%', height: isMobile ? '300px' : '500px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+              {/* Main center phone - larger */}
+              <div style={{position: 'absolute', width: isMobile ? '120px' : '200px', height: isMobile ? '240px' : '380px', zIndex: 3}}>
+                <img src="/phone%20mockup.png" alt="Main app mockup" style={{width: '100%', height: '100%', objectFit: 'cover', borderRadius: '2rem', boxShadow: '0 30px 60px rgba(0,0,0,0.4), 0 0 1px rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.1)'}} />
+              </div>
+
+              {/* Left phone - offset */}
+              {!isMobile && (
+                <div style={{position: 'absolute', left: '-40px', width: '140px', height: '280px', zIndex: 2, transform: 'rotate(-15deg) translateY(30px)'}}>
+                  <img src="/phone%20mockup.png" alt="Secondary mockup 1" style={{width: '100%', height: '100%', objectFit: 'cover', borderRadius: '1.5rem', boxShadow: '0 20px 40px rgba(0,0,0,0.25)', border: '1px solid rgba(255,255,255,0.05)', opacity: 0.8}} />
+                </div>
+              )}
+
+              {/* Right phone - offset */}
+              {!isMobile && (
+                <div style={{position: 'absolute', right: '-30px', width: '140px', height: '280px', zIndex: 2, transform: 'rotate(15deg) translateY(40px)'}}>
+                  <img src="/phone%20mockup.png" alt="Secondary mockup 2" style={{width: '100%', height: '100%', objectFit: 'cover', borderRadius: '1.5rem', boxShadow: '0 20px 40px rgba(0,0,0,0.25)', border: '1px solid rgba(255,255,255,0.05)', opacity: 0.8}} />
+                </div>
+              )}
+
+              {/* Floating accent elements */}
+              <div style={{position: 'absolute', width: isMobile ? '60px' : '100px', height: isMobile ? '60px' : '100px', background: 'rgba(204,85,0,0.1)', borderRadius: '50%', top: '-20px', right: '10%', filter: 'blur(30px)', pointerEvents: 'none'}}/>
+              <div style={{position: 'absolute', width: isMobile ? '80px' : '120px', height: isMobile ? '80px' : '120px', background: 'rgba(204,85,0,0.1)', borderRadius: '50%', bottom: '-30px', left: isMobile ? '-40px' : '-10%', filter: 'blur(40px)', pointerEvents: 'none'}}/>
             </div>
           </div>
+          </AnimatedSection>
         </div>
       </div>
     </section>
