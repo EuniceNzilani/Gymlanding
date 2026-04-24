@@ -16,9 +16,10 @@ export default function Pricing() {
   }, [])
 
   return (
-    <section id="pricing" style={{background: '#ffd9b3', padding: isMobile ? '2rem 1rem 3rem' : '3rem 4rem 3rem', position: 'relative', overflow: 'hidden', width: '100%', boxSizing: 'border-box'}}>
+    <section id="pricing" style={{background: '#ffffff62', padding: '3.5rem 1rem', position: 'relative', overflow: 'hidden', width: '100%', boxSizing: 'border-box'}}>
 
-      <div style={{width: '100%', maxWidth: 1200, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1}}>
+      <div style={{maxWidth: 1400, margin: '0 auto', background: '#f0a961cc', padding: '2rem', borderRadius: 15, textAlign: 'center', position: 'relative', zIndex: 1}}>
+        <div style={{width: '100%', maxWidth: 1200, margin: '0 auto'}}>
         <AnimatedSection direction="up" delay={0}>
           <div>
             <h2 style={{fontSize: isMobile ? 'clamp(1.5rem, 6vw, 2rem)' : '2rem', marginBottom: '0.5rem', color: '#0f172a', fontWeight: 800}}>Pricing</h2>
@@ -93,6 +94,7 @@ export default function Pricing() {
             <button style={{background: '#CC5500', color: '#fff', border: 'none', padding: '0.75rem 1.25rem', borderRadius: 8, fontWeight: 700, cursor: 'pointer', fontSize: isMobile ? '0.95rem' : '1rem'}}>Get Started</button>
           </div>
           </AnimatedItem>
+        </div>
         </div>
       </div>
     </section>

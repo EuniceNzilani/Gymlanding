@@ -20,7 +20,7 @@ export default function Footer() {
     <footer style={{background: '#CC5500', color: '#ffffff', padding: isMobile ? '1.5rem 1rem 0.75rem' : '1.25rem 2rem 1rem'}}>
       <div style={{width: '100%', maxWidth: 1400, margin: '0 auto'}}>
         <AnimatedSection direction="up" delay={0}>
-        <div style={{display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(220px, 1fr))', gap: isMobile ? '1.25rem' : '1.25rem', marginBottom: '1.25rem', paddingBottom: '1rem', borderBottom: '1px solid rgba(255,255,255,0.04)'}}>
+        <div style={{display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(200px, 1fr))', gap: isMobile ? '1.25rem' : '1.25rem', marginBottom: '1.25rem', paddingBottom: '1rem', borderBottom: '1px solid rgba(255,255,255,0.04)'}}>
           <div>
             <div style={{fontWeight: 800, fontSize: isMobile ? '1.05rem' : '1.25rem', color: '#ffffff', marginBottom: '0.5rem'}}>M-Gym</div>
                 <p style={{color: '#f5f5f5', fontSize: isMobile ? '0.82rem' : '0.88rem', lineHeight: 1.5, margin: 0}}>
@@ -36,21 +36,27 @@ export default function Footer() {
             </ul>
           </div>
           <div>
+            <h4 style={{color: '#fb923c', fontWeight: 700, margin: '0 0 0.6rem 0', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.5px'}}>Documentation</h4>
+            <ul style={{listStyle: 'none', padding: 0, margin: 0, display: 'grid', gap: '0.5rem'}}>
+              <li><a href="/documentation" style={{color: '#cbd5e1', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#cbd5e1'}>Getting Started</a></li>
+              <li><a href="/documentation" style={{color: '#cbd5e1', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#cbd5e1'}>Tutorials</a></li>
+              <li><a href="/documentation" style={{color: '#cbd5e1', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#cbd5e1'}>Video Guides</a></li>
+            </ul>
+          </div>
+          <div>
             <h4 style={{color: '#fb923c', fontWeight: 700, margin: '0 0 0.6rem 0', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.5px'}}>Support</h4>
             <ul style={{listStyle: 'none', padding: 0, margin: 0, display: 'grid', gap: '0.5rem'}}>
               <li><a href="#contact" style={{color: '#cbd5e1', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#cbd5e1'}>Help Center</a></li>
-              <li><a href="/documentation" style={{color: '#cbd5e1', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#cbd5e1'}>Documentation</a></li>
-              <li>
-                <a href="#contact" style={{color: '#cbd5e1', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#cbd5e1'}>Support</a>
-              </li>
-              
+              <li><a href="/documentation" style={{color: '#cbd5e1', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#cbd5e1'}>FAQ</a></li>
+              <li><a href="#contact" style={{color: '#cbd5e1', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#cbd5e1'}>Contact Support</a></li>
+              <li><a href="/documentation" style={{color: '#cbd5e1', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => e.currentTarget.style.color = '#ffd8b5'} onMouseLeave={(e) => e.currentTarget.style.color = '#cbd5e1'}>Troubleshooting</a></li>
             </ul>
           </div>
           <div>
             <h4 style={{color: '#fb923c', fontWeight: 700, margin: '0 0 0.6rem 0', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.5px'}}>Legal</h4>
             <ul style={{listStyle: 'none', padding: 0, margin: 0, display: 'grid', gap: '0.5rem'}}>
-              <li><a href="/privacy" style={{color: '#cbd5e1', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => {e.currentTarget.style.color = '#ffd8b5'}} onMouseLeave={(e) => {e.currentTarget.style.color = '#cbd5e1'}}>Privacy</a></li>
-              <li><a href="/terms" style={{color: '#cbd5e1', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => {e.currentTarget.style.color = '#ffd8b5'}} onMouseLeave={(e) => {e.currentTarget.style.color = '#cbd5e1'}}>Terms</a></li>
+               <li><a href="/privacy" style={{color: '#cbd5e1', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => {e.currentTarget.style.color = '#ffd8b5'}} onMouseLeave={(e) => {e.currentTarget.style.color = '#cbd5e1'}}>Privacy</a></li>
+               <li><a href="/terms" style={{color: '#cbd5e1', textDecoration: 'none', fontSize: isMobile ? '0.85rem' : '0.9rem', transition: 'color 0.2s', display: 'inline-block'}} onMouseEnter={(e) => {e.currentTarget.style.color = '#ffd8b5'}} onMouseLeave={(e) => {e.currentTarget.style.color = '#cbd5e1'}}>Terms</a></li>
             </ul>
           </div>
         </div>

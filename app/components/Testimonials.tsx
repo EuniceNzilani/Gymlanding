@@ -33,8 +33,10 @@ export default function Testimonials() {
   })
 
   return (
-    <section id="testimonials" style={{ background: '#ffd9b3', padding: isMobile ? '3rem 1rem 4rem' : '3rem 2rem 4rem', width: '100%', boxSizing: 'border-box' }}>
-      <div style={{ width: '100%', maxWidth: 1200, margin: '0 auto', textAlign: 'center' }}>
+    <section id="testimonials" style={{background: '#ffffff62', padding: '3.5rem 1rem', position: 'relative', overflow: 'hidden', width: '100%', boxSizing: 'border-box'}}>
+
+      <div style={{maxWidth: 1400, margin: '0 auto', background: '#f0a961cc', padding: '2rem', borderRadius: 15, textAlign: 'center', position: 'relative', zIndex: 1}}>
+        <div style={{ width: '100%', maxWidth: 1200, margin: '0 auto' }}>
         <AnimatedSection direction="up" delay={0}>
           <div>
             <h2 style={{ fontSize: isMobile ? 'clamp(1.5rem, 6vw, 2rem)' : '2rem', marginBottom: '0.5rem', color: '#0f172a', fontWeight: 800 }}>What Gym Owners Say</h2>
@@ -100,6 +102,7 @@ export default function Testimonials() {
           <button aria-label="Next testimonials" onClick={handleNext} style={{ background: 'transparent', border: '1px solid rgba(15,23,42,0.08)', borderRadius: 8, width: 40, height: 40, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>&gt;</button>
         </div>
         </AnimatedSection>
+        </div>
       </div>
     </section>
   )

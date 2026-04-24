@@ -14,8 +14,10 @@ export default function ContactUs() {
   }, [])
 
   return (
-    <section id="contact" style={{ background: '#ffd9b3', padding: isMobile ? '2.5rem 3rem 3rem' : '3rem 8rem 3rem', width: '100%', boxSizing: 'border-box' }}>
-      <div style={{ width: '100%', maxWidth: 1200, margin: '0 auto' }}>
+    <section id="contact" style={{background: '#ffffff62', padding: '3.5rem 1rem', position: 'relative', overflow: 'hidden', width: '100%', boxSizing: 'border-box'}}>
+
+      <div style={{maxWidth: 1400, margin: '0 auto', background: '#ffd9b3', padding: '2rem', borderRadius: 15, textAlign: 'center', position: 'relative', zIndex: 1}}>
+        <div style={{ width: '100%', maxWidth: 1200, margin: '0 auto' }}>
         {/* Top contact cards */}
         <AnimatedSection direction="up" delay={0}>
         <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)', gap: 12, marginBottom: 20 }}>
@@ -78,6 +80,7 @@ export default function ContactUs() {
           </form>
         </div>
         </AnimatedSection>
+        </div>
       </div>
     </section>
   )

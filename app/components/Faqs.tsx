@@ -16,8 +16,10 @@ export default function Faqs() {
   }, [])
 
   return (
-    <section id="faq" style={{background: '#ffd4a3', padding: isMobile ? '2rem 1rem' : '4rem 2rem', width: '100%', boxSizing: 'border-box'}}>
-      <div style={{width: '100%', maxWidth: 900, margin: '0 auto'}}>
+    <section id="faq" style={{background: '#ffffff62', padding: '3.5rem 1rem', position: 'relative', overflow: 'hidden', width: '100%', boxSizing: 'border-box'}}>
+
+      <div style={{maxWidth: 1400, margin: '0 auto', background: '#ffd9b3', padding: '2rem', borderRadius: 15, textAlign: 'center', position: 'relative', zIndex: 1}}>
+        <div style={{width: '100%', maxWidth: 900, margin: '0 auto'}}>
         <AnimatedSection direction="up" delay={0}>
           <div style={{marginBottom: '3rem', textAlign: 'center'}}>
             <h2 style={{fontSize: isMobile ? 'clamp(1.75rem, 6vw, 2.5rem)' : '2.5rem', margin: '0 0 1rem 0', color: '#0f172a', fontWeight: 900}}>Frequently Asked Questions</h2>
@@ -109,6 +111,7 @@ export default function Faqs() {
             </p>
           </details>
           </AnimatedItem>
+        </div>
         </div>
       </div>
     </section>
