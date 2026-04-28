@@ -1,4 +1,3 @@
-'use client'
 import Home from './components/Home'
 import Features from './components/Features'
 import Pricing from './components/Pricing'
@@ -10,7 +9,7 @@ import Footer from './components/Footer'
 
 export default function Page() {
 	return (
-		<main style={{paddingTop: '0px', paddingBottom: '0px', margin: '0px'}}>
+		<main className="pt-0 pb-0 m-0">
 			<Home />
 
 			<Features />

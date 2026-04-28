@@ -1,94 +1,55 @@
 'use client'
 
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import { usePathname } from 'next/navigation'
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false)
-  const [mounted, setMounted] = useState(false)
-  const [isMobile, setIsMobile] = useState(false)
+  const pathname = usePathname()
 
-  useEffect(() => {
-    // Check screen size on mount and resize
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-
-    // Initial check
-    handleResize()
-    setMounted(true)
-
-    // Add resize listener
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
-
-  // Only render mobile menu on actual mobile devices (under 768px)
-  // Desktop navbar shows on screens 768px and larger
-  if (!mounted) {
-    return (
-      <nav style={{position: 'fixed', top: 0, left: 0, right: 0, background: '#f3f4f6', boxShadow: '0 2px 8px rgba(0,0,0,0.06)', zIndex: 1000}}>
-        <div style={{maxWidth: 1400, margin: '0 auto', padding: '0 1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', height: '60px'}}>
-          <div style={{fontWeight: 800, fontSize: 'clamp(1.1rem, 5vw, 1.5rem)', background: 'linear-gradient(135deg,#ff8a00,#ff5e00)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text'}}>M-Gym</div>
-            <div style={{display: 'flex', gap: '1.5rem', alignItems: 'center'}}>
-             <Link href="#home" style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500}}>Home</Link>
-            <Link href="/#features" style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500}}>Features</Link>
-            <Link href="/#pricing" style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500}}>Pricing</Link>
-            <Link href="/#testimonials" style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500}}>Testimonials</Link>
-            <a href="https://m-gym.co.ke/signin" style={{padding: '0.65rem 1.75rem', background: 'linear-gradient(135deg,#ff8a00,#ff5e00)', color: '#fff', border: 'none', borderRadius: 25, fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer', textDecoration: 'none', display: 'inline-block', textAlign: 'center'}}>Sign In</a>
-          </div>
-        </div>
-      </nav>
-    )
-  }
+  const homeHref = pathname === '/' ? '#home' : '/#home'
 
   return (
     <>
-      {/* Desktop Navbar - Only show on large screens */}
-      {!isMobile && (
-        <nav style={{position: 'fixed', top: 0, left: 0, right: 0, background: '#f3f4f6', boxShadow: '0 2px 8px rgba(0,0,0,0.06)', zIndex: 1000}}>
-          <div style={{maxWidth: 1400, margin: '0 auto', padding: '0 1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', height: '60px'}}>
-            <div style={{fontWeight: 800, fontSize: 'clamp(1.1rem, 5vw, 1.5rem)', background: 'linear-gradient(135deg,#ff8a00,#ff5e00)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text'}}>M-Gym</div>
-            
-            {/* Desktop Menu */}
-            <div style={{display: 'flex', gap: '1.5rem', alignItems: 'center'}}>
-              <Link href="#home" style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500, transition: 'color 0.3s', cursor: 'pointer'}}>Home</Link>
-              <Link href="/#features" style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500, transition: 'color 0.3s', cursor: 'pointer'}}>Features</Link>
-              <Link href="/#pricing" style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500, transition: 'color 0.3s', cursor: 'pointer'}}>Pricing</Link>
-              <Link href="/#testimonials" style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500, transition: 'color 0.3s', cursor: 'pointer'}}>Testimonials</Link>
-              <a href="https://m-gym.co.ke/signin" style={{padding: '0.65rem 1.75rem', background: 'linear-gradient(135deg,#ff8a00,#ff5e00)', color: '#fff', border: 'none', borderRadius: 25, fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer', boxShadow: '0 4px 12px rgba(255,130,0,0.25)', transition: 'all 0.3s', textDecoration: 'none', display: 'inline-block', textAlign: 'center'}}>Sign In</a>
-            </div>
-          </div>
-        </nav>
-      )}
+      {/* Desktop Navbar - Hidden on mobile */}
+      <nav className="fixed top-0 left-0 right-0 bg-gray-50 shadow-sm shadow-black/6 z-50 hidden md:block">
+        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between w-full h-15">
+          <div className="font-extrabold text-xl md:text-2xl bg-gradient-to-br from-orange-400 to-orange-600 bg-clip-text text-transparent">M-Gym</div>
 
-      {/* Mobile Header - Only show on small screens */}
-      {isMobile && (
-        <>
-          {/* Mobile Top Bar with Logo and Hamburger */}
-          <div style={{position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000, paddingLeft: '1rem', paddingRight: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: '#f3f4f6', boxShadow: '0 2px 8px rgba(0,0,0,0.06)', height: '60px'}}>
-            {/* M-Gym Logo */}
-            <div style={{fontWeight: 800, fontSize: '1.25rem', background: 'linear-gradient(135deg,#ff8a00,#ff5e00)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', minWidth: 0, overflow: 'hidden'}}>M-Gym</div>
-            
-            {/* Hamburger Button */}
-            <button onClick={() => setIsOpen(!isOpen)} style={{flexDirection: 'column', gap: '0.35rem', background: 'none', border: 'none', cursor: 'pointer', padding: '0.25rem', display: 'flex', flexShrink: 0}}>
-              <span style={{width: '1.5rem', height: '0.2rem', background: '#1f2937', borderRadius: '0.1rem', transition: 'all 0.3s', transform: isOpen ? 'rotate(45deg) translateY(0.55rem)' : 'rotate(0)'}}></span>
-              <span style={{width: '1.5rem', height: '0.2rem', background: '#1f2937', borderRadius: '0.1rem', transition: 'all 0.3s', opacity: isOpen ? 0 : 1}}></span>
-              <span style={{width: '1.5rem', height: '0.2rem', background: '#1f2937', borderRadius: '0.1rem', transition: 'all 0.3s', transform: isOpen ? 'rotate(-45deg) translateY(-0.55rem)' : 'rotate(0)'}}></span>
-            </button>
+          {/* Desktop Menu */}
+          <div className="flex gap-6 items-center">
+            <Link href={homeHref} className="no-underline text-gray-800 text-base font-medium transition-colors cursor-pointer hover:text-gray-600">Home</Link>
+            <Link href="/#features" className="no-underline text-gray-800 text-base font-medium transition-colors cursor-pointer hover:text-gray-600">Features</Link>
+            <Link href="/#pricing" className="no-underline text-gray-800 text-base font-medium transition-colors cursor-pointer hover:text-gray-600">Pricing</Link>
+            <Link href="/#testimonials" className="no-underline text-gray-800 text-base font-medium transition-colors cursor-pointer hover:text-gray-600">Testimonials</Link>
+             <a href="https://m-gym.co.ke/signin" target="_blank" rel="noopener noreferrer" className="px-7 py-2.5 bg-gradient-to-br from-orange-400 to-orange-600 text-white border-none rounded-full text-sm font-semibold cursor-pointer shadow-lg shadow-orange-500/25 transition-all hover:shadow-xl hover:shadow-orange-500/4 no-underline inline-block text-center">Sign In</a>
           </div>
+        </div>
+      </nav>
 
-          {/* Mobile Menu Dropdown */}
-          {isOpen && (
-            <div style={{position: 'fixed', top: 60, left: 0, right: 0, background: '#f3f4f6', borderTop: '1px solid #e5e7eb', display: 'flex', flexDirection: 'column', gap: '0.5rem', padding: '1rem', maxHeight: 'calc(100vh - 60px)', overflowY: 'auto', zIndex: 999}}>
-              <Link href="#home" onClick={() => setIsOpen(false)} style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500, padding: '0.75rem 1rem', borderRadius: '0.5rem', transition: 'background 0.3s', cursor: 'pointer'}} onMouseEnter={(e) => e.currentTarget.style.background = '#f3f4f6'} onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}>Home</Link>
-              <Link href="/#features" onClick={() => setIsOpen(false)} style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500, padding: '0.75rem 1rem', borderRadius: '0.5rem', transition: 'background 0.3s', cursor: 'pointer'}} onMouseEnter={(e) => e.currentTarget.style.background = '#f3f4f6'} onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}>Features</Link>
-              <Link href="/#pricing" onClick={() => setIsOpen(false)} style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500, padding: '0.75rem 1rem', borderRadius: '0.5rem', transition: 'background 0.3s', cursor: 'pointer'}} onMouseEnter={(e) => e.currentTarget.style.background = '#f3f4f6'} onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}>Pricing</Link>
-              <Link href="/#testimonials" onClick={() => setIsOpen(false)} style={{textDecoration: 'none', color: '#1f2937', fontSize: '0.95rem', fontWeight: 500, padding: '0.75rem 1rem', borderRadius: '0.5rem', transition: 'background 0.3s', cursor: 'pointer'}} onMouseEnter={(e) => e.currentTarget.style.background = '#f3f4f6'} onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}>Testimonials</Link>
-              <a href="https://m-gym.co.ke/signin" style={{width: '100%', padding: '0.65rem 1rem', background: 'linear-gradient(135deg,#ff8a00,#ff5e00)', color: '#fff', border: 'none', borderRadius: 25, fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer', boxShadow: '0 4px 12px rgba(255,130,0,0.25)', transition: 'all 0.3s', marginTop: '0.5rem', textDecoration: 'none', display: 'inline-block', textAlign: 'center'}}>Sign In</a>
-            </div>
-          )}
-        </>
+      {/* Mobile Header - Hidden on desktop */}
+      <div className="fixed top-0 left-0 right-0 z-50 px-4 flex items-center justify-between bg-gray-50 shadow-sm shadow-black/6 h-15 md:hidden">
+        {/* M-Gym Logo */}
+        <div className="font-extrabold text-xl bg-gradient-to-br from-orange-400 to-orange-600 bg-clip-text text-transparent min-w-0 overflow-hidden">M-Gym</div>
+
+        {/* Hamburger Button */}
+        <button onClick={() => setIsOpen(!isOpen)} className="flex flex-col gap-1 bg-none border-none cursor-pointer p-1 flex-shrink-0">
+          <span className="w-6 h-0.5 bg-gray-800 rounded transition-all duration-300" style={{transform: isOpen ? 'rotate(45deg) translateY(0.55rem)' : 'rotate(0)'}}></span>
+          <span className="w-6 h-0.5 bg-gray-800 rounded transition-all duration-300" style={{opacity: isOpen ? 0 : 1}}></span>
+          <span className="w-6 h-0.5 bg-gray-800 rounded transition-all duration-300" style={{transform: isOpen ? 'rotate(-45deg) translateY(-0.55rem)' : 'rotate(0)'}}></span>
+        </button>
+      </div>
+
+      {/* Mobile Menu Dropdown */}
+      {isOpen && (
+        <div className="fixed top-15 left-0 right-0 bg-gray-50 border-t border-gray-200 flex flex-col gap-2 p-4 max-h-[calc(100vh-60px)] overflow-y-auto z-40 md:hidden">
+          <Link href={homeHref} onClick={() => setIsOpen(false)} className="no-underline text-gray-800 text-base font-medium p-3 rounded-lg transition-colors cursor-pointer hover:bg-gray-100">Home</Link>
+          <Link href="/#features" onClick={() => setIsOpen(false)} className="no-underline text-gray-800 text-base font-medium p-3 rounded-lg transition-colors cursor-pointer hover:bg-gray-100">Features</Link>
+          <Link href="/#pricing" onClick={() => setIsOpen(false)} className="no-underline text-gray-800 text-base font-medium p-3 rounded-lg transition-colors cursor-pointer hover:bg-gray-100">Pricing</Link>
+          <Link href="/#testimonials" onClick={() => setIsOpen(false)} className="no-underline text-gray-800 text-base font-medium p-3 rounded-lg transition-colors cursor-pointer hover:bg-gray-100">Testimonials</Link>
+           <a href="https://m-gym.co.ke/signin" target="_blank" rel="noopener noreferrer" className="w-full p-2.5 bg-gradient-to-br from-orange-400 to-orange-600 text-white border-none rounded-full text-sm font-semibold cursor-pointer shadow-lg shadow-orange-500/25 transition-all hover:shadow-xl hover:shadow-orange-500/4 mt-2 no-underline inline-block text-center">Sign In</a>
+        </div>
       )}
     </>
   )

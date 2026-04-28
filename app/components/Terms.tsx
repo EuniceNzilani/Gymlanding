@@ -34,14 +34,37 @@ export default function Terms() {
   ]
 
   return (
-    <div id="terms" style={{backgroundColor: '#ffd9b3', paddingTop: isMobile ? '1.5rem' : '3rem', paddingBottom: '3rem'}}>
+    <div id="terms" style={{backgroundColor: '#ffd9b3', paddingTop: 0, paddingBottom: '3rem'}}>
       {/* Header Section */}
-      <div style={{backgroundColor: 'rgba(226,232,240,0.7)', paddingTop: isMobile ? '2rem' : '3rem', paddingBottom: isMobile ? '2rem' : '3rem', marginBottom: '2rem', borderBottom: '1px solid #e5e7eb'}}>
-        <div style={{maxWidth: 1200, margin: '0 auto', padding: isMobile ? '0 1rem' : '0 2rem', textAlign: 'center'}}>
-          <div style={{display: 'inline-block', backgroundColor: '#fef3c7', padding: '0.5rem 1rem', borderRadius: '20px', marginBottom: '1rem'}}>
-            <span style={{color: '#d97706', fontSize: '0.85rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
-              ⚖️ Terms of Service
-            </span>
+      <div style={{backgroundColor: 'rgba(226,232,240,0.7)', paddingTop: isMobile ? '2rem' : '3rem', paddingBottom: isMobile ? '2rem' : '3rem', marginBottom: '2rem', borderBottom: '1px solid #e5e7eb', position: 'fixed', top: 0, left: 0, right: 0, zIndex: 10}}>
+        <div style={{maxWidth: 1200, margin: '0 auto', padding: isMobile ? '0 1rem' : '0 2rem'}}>
+          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem', marginBottom: '1rem'}}>
+            <button
+              onClick={() => window.location.assign('/#home')}
+              style={{
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                fontSize: '1.5rem',
+                color: '#d97706',
+                padding: '0.5rem',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                transition: 'background 0.2s'
+              }}
+              onMouseOver={(e) => e.currentTarget.style.background = 'rgba(217,119,6,0.1)'}
+              onMouseOut={(e) => e.currentTarget.style.background = 'none'}
+              aria-label="Go back"
+            >
+              ←
+            </button>
+            <div style={{display: 'inline-block', backgroundColor: '#fef3c7', padding: '0.5rem 1rem', borderRadius: '20px'}}>
+              <span style={{color: '#d97706', fontSize: '0.85rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
+                ⚖️ Terms of Service
+              </span>
+            </div>
           </div>
           <h1 style={{fontSize: isMobile ? '1.75rem' : '2.5rem', fontWeight: 800, color: '#1e293b', margin: '1rem 0', marginTop: 0}}>
             Terms and Conditions
@@ -53,44 +76,9 @@ export default function Terms() {
       </div>
 
       {/* Main Content */}
-      <div style={{maxWidth: 1200, margin: '0 auto', padding: isMobile ? '0 1rem' : '0 2rem', display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '280px 1fr', gap: isMobile ? '1.5rem' : '2rem'}}>
+      <div style={{maxWidth: 1200, margin: '0 auto', padding: isMobile ? '0 1rem' : '0 2rem', paddingTop: isMobile ? '1.5rem' : '18rem', display: !isMobile ? 'grid' : 'block', gridTemplateColumns: !isMobile ? '280px 1fr' : 'none', gap: !isMobile ? '2rem' : '0', position: 'relative'}}>
         
-        {/* Sidebar Navigation */}
-        {!isMobile && (
-          <div>
-            <div style={{position: 'sticky', top: '2rem'}}>
-              <h3 style={{fontSize: '0.85rem', fontWeight: 700, color: '#d97706', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '1rem'}}>
-                Quick Navigation
-              </h3>
-              <div style={{display: 'grid', gap: '0.75rem'}}>
-                {sections.map((section) => (
-                  <button
-                    key={section.id}
-                    onClick={() => scrollToSection(section.id)}
-                    style={{
-                      background: activeSection === section.id ? 'rgba(255,255,255,0.92)' : 'rgba(255,255,255,0.6)',
-                      border: activeSection === section.id ? '2px solid rgba(15,23,42,0.06)' : '1px solid rgba(15,23,42,0.04)',
-                      padding: '0.75rem 1rem',
-                      borderRadius: '8px',
-                      textAlign: 'left',
-                      cursor: 'pointer',
-                      transition: 'all 0.2s',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.75rem',
-                      fontSize: '0.9rem',
-                      fontWeight: activeSection === section.id ? 600 : 500,
-                      color: activeSection === section.id ? '#d97706' : '#475569',
-                    }}
-                  >
-                    <span style={{fontSize: '1.1rem'}}>{section.icon}</span>
-                    {section.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
+
 
         {/* Mobile Navigation */}
         {isMobile && (
@@ -117,6 +105,8 @@ export default function Terms() {
             ))}
           </div>
         )}
+
+        {!isMobile && <div></div>}
 
         {/* Content Area */}
         <div style={{display: 'grid', gap: '1.5rem'}}>
@@ -253,8 +243,8 @@ export default function Terms() {
               <li>M-Gym may suspend access for terms violations</li>
               <li>M-Gym may terminate for prolonged inactivity (90+ days)</li>
               <li>Payment subscribers may request refunds per our refund policy</li>
-            </ul>
-            <div style={{backgroundColor: '#f0fdf4', padding: '1rem', borderRadius: '8px', borderLeft: '4px solid #d97706', marginTop: '1rem'}}>
+             </ul>
+             <div style={{backgroundColor: '#f0fdf4', padding: '1rem', borderRadius: '8px', borderLeft: '4px solid #d97706', marginTop: '1rem'}}>
               <p style={{fontSize: '0.9rem', color: '#78350f', fontWeight: 600, marginBottom: '0.5rem'}}>📧 Questions about these Terms?</p>
               <p style={{fontSize: '0.9rem', color: '#78350f', margin: '0.25rem 0'}}>Email: support@mzalendofiber.co.ke</p>
               <p style={{fontSize: '0.9rem', color: '#78350f', margin: '0.25rem 0'}}>Phone: +254111014100</p>
@@ -262,6 +252,40 @@ export default function Terms() {
             </div>
           </div>
         </div>
+
+        {!isMobile && (
+          <div style={{ position: 'absolute', top: '18rem', left: '2rem', width: '280px' }}>
+            <h3 style={{fontSize: '0.85rem', fontWeight: 700, color: '#d97706', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '1rem'}}>
+              Quick Navigation
+            </h3>
+            <div style={{display: 'grid', gap: '0.75rem'}}>
+              {sections.map((section) => (
+                <button
+                  key={section.id}
+                  onClick={() => scrollToSection(section.id)}
+                  style={{
+                    background: activeSection === section.id ? 'rgba(255,255,255,0.92)' : 'rgba(255,255,255,0.6)',
+                    border: activeSection === section.id ? '2px solid rgba(15,23,42,0.06)' : '1px solid rgba(15,23,42,0.04)',
+                    padding: '0.75rem 1rem',
+                    borderRadius: '8px',
+                    textAlign: 'left',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.75rem',
+                    fontSize: '0.9rem',
+                    fontWeight: activeSection === section.id ? 600 : 500,
+                    color: activeSection === section.id ? '#d97706' : '#475569',
+                  }}
+                >
+                  <span style={{fontSize: '1.1rem'}}>{section.icon}</span>
+                  {section.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   )

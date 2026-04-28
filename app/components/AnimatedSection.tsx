@@ -1,7 +1,16 @@
 "use client"
 
-import { useRef, useEffect, useState, ReactNode } from 'react'
+/* eslint-disable react-hooks/set-state-in-effect */
+
+import { ReactNode, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
+
+// Mark user as having visited (called once at app level)
+export function markAsVisited() {
+  try {
+    localStorage.setItem('visited', 'true')
+  } catch {}
+}
 
 interface AnimatedSectionProps {
   children: ReactNode
@@ -9,30 +18,18 @@ interface AnimatedSectionProps {
   direction?: 'up' | 'down' | 'left' | 'right' | 'none'
   className?: string
   style?: React.CSSProperties
+  id?: string
 }
 
 const directionVariants = {
-  up: {
-    initial: { opacity: 0, y: 60 },
-    animate: { opacity: 1, y: 0 },
-  },
-  down: {
-    initial: { opacity: 0, y: -60 },
-    animate: { opacity: 1, y: 0 },
-  },
-  left: {
-    initial: { opacity: 0, x: 60 },
-    animate: { opacity: 1, x: 0 },
-  },
-  right: {
-    initial: { opacity: 0, x: -60 },
-    animate: { opacity: 1, x: 0 },
-  },
-  none: {
-    initial: { opacity: 0 },
-    animate: { opacity: 1 },
-  },
+  up: { y: 60, x: 0 },
+  down: { y: -60, x: 0 },
+  left: { x: 60, y: 0 },
+  right: { x: -60, y: 0 },
+  none: { x: 0, y: 0 },
 }
+
+
 
 export function AnimatedSection({
   children,
@@ -40,40 +37,52 @@ export function AnimatedSection({
   direction = 'up',
   className,
   style,
+  id,
 }: AnimatedSectionProps) {
-  const ref = useRef(null)
-  const [isInView, setIsInView] = useState(false)
+  const [isBack, setIsBack] = useState(false)
 
   useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setIsInView(true)
-        observer.unobserve(entry.target)
-      }
-    }, { threshold: 0.1 })
+    markAsVisited()
+  }, [])
 
-    if (ref.current) {
-      observer.observe(ref.current)
+  useEffect(() => {
+    const handlePageShow = (event: any) => {
+      if (event.persisted) {
+        setIsBack(true)
+      }
     }
 
+    const handlePopState = () => {
+      setIsBack(true)
+    }
+
+    const navEntry = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming
+    if (navEntry?.type === 'back_forward') {
+      setIsBack(true)
+    }
+
+    window.addEventListener('pageshow', handlePageShow)
+    window.addEventListener('popstate', handlePopState)
+
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current)
-      }
+      window.removeEventListener('pageshow', handlePageShow)
+      window.removeEventListener('popstate', handlePopState)
     }
   }, [])
 
-  const variants = directionVariants[direction]
+  const initial = direction === 'none' ? { opacity: 0 } : { opacity: 0, ...directionVariants[direction] }
+  const target = { opacity: 1, x: 0, y: 0 }
 
   return (
     <motion.div
-      ref={ref}
-      initial="initial"
-      animate={isInView ? 'animate' : 'initial'}
-      variants={variants}
-      transition={{ duration: 0.6, delay, ease: 'easeOut' }}
+      id={id}
       className={className}
       style={style}
+      initial={initial}
+      animate={isBack ? target : undefined}
+      whileInView={isBack ? undefined : target}
+      transition={{ duration: isBack ? 0 : 0.5, delay: isBack ? 0 : delay, ease: 'easeOut' }}
+      viewport={isBack ? undefined : { once: true, margin: '-50px' }}
     >
       {children}
     </motion.div>
@@ -81,37 +90,47 @@ export function AnimatedSection({
 }
 
 export function AnimatedItem({ children, delay = 0, direction = 'up' }: Omit<AnimatedSectionProps, 'className' | 'style'>) {
-  const ref = useRef(null)
-  const [isInView, setIsInView] = useState(false)
+  const [isBack, setIsBack] = useState(false)
 
   useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setIsInView(true)
-        observer.unobserve(entry.target)
-      }
-    }, { threshold: 0.1 })
+    markAsVisited()
+  }, [])
 
-    if (ref.current) {
-      observer.observe(ref.current)
+  useEffect(() => {
+    const handlePageShow = (event: any) => {
+      if (event.persisted) {
+        setIsBack(true)
+      }
     }
 
+    const handlePopState = () => {
+      setIsBack(true)
+    }
+
+    const navEntry = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming
+    if (navEntry?.type === 'back_forward') {
+      setIsBack(true)
+    }
+
+    window.addEventListener('pageshow', handlePageShow)
+    window.addEventListener('popstate', handlePopState)
+
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current)
-      }
+      window.removeEventListener('pageshow', handlePageShow)
+      window.removeEventListener('popstate', handlePopState)
     }
   }, [])
 
-  const variants = directionVariants[direction]
+  const initial = direction === 'none' ? { opacity: 0 } : { opacity: 0, ...directionVariants[direction] }
+  const target = { opacity: 1, x: 0, y: 0 }
 
   return (
     <motion.div
-      ref={ref}
-      initial="initial"
-      animate={isInView ? 'animate' : 'initial'}
-      variants={variants}
-      transition={{ duration: 0.6, delay, ease: 'easeOut' }}
+      initial={initial}
+      animate={isBack ? target : undefined}
+      whileInView={isBack ? undefined : target}
+      transition={{ duration: isBack ? 0 : 0.5, delay: isBack ? 0 : delay, ease: 'easeOut' }}
+      viewport={isBack ? undefined : { once: true, margin: '-50px' }}
     >
       {children}
     </motion.div>

@@ -1,106 +1,77 @@
 "use client"
 
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import Link from 'next/link'
 import { AnimatedSection, AnimatedItem } from './AnimatedSection'
 
 export default function Home() {
-  const [isMobile, setIsMobile] = useState(false)
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    handleResize()
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
-
   return (
     <section
       id="home"
-      style={{
-        background: '#ffffff',
-        padding: '3.5rem 1rem',
-        position: 'relative',
-        overflow: 'hidden',
-        width: '100%',
-        boxSizing: 'border-box'
-      }}
+      className="bg-white pt-0 pb-8 md:pt-14 md:pb-14 px-0.5 md:px-14 relative overflow-hidden w-full box-border"
     >
 
-      <div style={{maxWidth: 1400, margin: '0 auto', padding: '2rem', borderRadius: 15, position: 'relative', overflow: 'hidden'}}>
-        <Image src="/background.jpg" alt="" fill style={{objectFit: 'cover', filter: 'brightness(0.96)'}} />
-        <div style={{position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.14)', zIndex: 1, borderRadius: 15}} />
-        <div style={{position: 'relative', zIndex: 2}}>
-          <div style={{display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? '2rem' : '3rem', alignItems: 'center', margin: 0}}>
-          
-            {/* Left: Content */}
-            <AnimatedSection direction="left" delay={0.1}>
-              <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', order: isMobile ? 2 : 1}}>
-                <div style={{display: 'flex', gap: '0.5rem', alignItems: 'center', marginBottom: '1rem'}}>
-                  <div style={{width: 12, height: 12, borderRadius: 3, background: 'rgb(211, 80, 10)', boxShadow: '0 6px 12px rgba(255,122,26,0.22)', flexShrink: 0}}/>
-                  <span style={{fontSize: '0.875rem', fontWeight: 700, color: 'rgba(255,255,255,0.9)', textTransform: 'uppercase', letterSpacing: '0.05em'}}>M-Gym</span>
+      <div className="max-w-7xl mx-auto px-0 py-8 md:p-8 rounded-2xl relative overflow-hidden">
+        <Image src="/background.jpg" alt="" fill className="object-cover" />
+        <div className="absolute inset-0 bg-black/14 z-10 rounded-2xl" />
+        <div className="relative z-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center m-0">
+
+              {/* Left: Content */}
+              <AnimatedSection direction="left" delay={0.1}>
+                <div className="flex flex-col justify-center order-2 md:order-1 ml-5">
+                <div className="flex gap-2 items-center mb-4">
+                  <div className="w-3 h-3 rounded bg-gray-800 shadow-lg shadow-orange-400/35 flex-shrink-0"/>
+                  <span className="text-sm font-bold text-white/90 uppercase tracking-wide">M-Gym</span>
                 </div>
 
-                <h1 style={{fontSize: isMobile ? '1.875rem' : '3rem', margin: '0 0 1rem 0', lineHeight: 1.2, color: '#fff', fontWeight: 900}}>
-                  Grow Your Gym & <span style={{background: 'rgb(241, 98, 21)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', textShadow: '0 6px 18px rgba(255,122,26,0.12)'}}>Boost Revenue</span>
+                <h1 className="text-3xl md:text-5xl m-0 mb-4 leading-tight text-white font-black">
+                  Grow Your Gym & <span className="bg-gray-800 bg-clip-text text-transparent drop-shadow-lg">Boost Revenue</span>
                 </h1>
 
-                <p style={{color: 'rgba(255,255,255,0.85)', fontSize: '1rem', marginBottom: '2rem', lineHeight: 1.7, maxWidth: '90%'}}>
+                <p className="text-white/85 text-base mb-8 leading-relaxed max-w-[90%]">
                   Stop losing money and members. Automate payments, manage schedules, track member progress, and scale your business effortlessly with our intelligent gym management platform.
                 </p>
 
-                {/* CTA Button */}
-                <div style={{display: 'flex', gap: '1rem', marginBottom: '3rem'}}>
-                  <button style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '0.5rem',
-                    padding: '0.75rem 2rem',
-                    background: 'linear-gradient(135deg,#FF7A1A,#FF5A00)',
-                    color: '#fff',
-                    border: 'none',
-                    borderRadius: '0.5rem',
-                    fontSize: '1rem',
-                    fontWeight: 600,
-                    cursor: 'pointer',
-                    transition: 'all 0.3s ease',
-                    boxShadow: '0 10px 25px rgba(204,85,0,0.3)',
-                    whiteSpace: 'nowrap'
-                  }} onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 15px 35px rgba(204,85,0,0.4)'; }} onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 10px 25px rgba(204,85,0,0.3)'; }}>
-                    <span>📱</span>
-                    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-start', lineHeight: 1.2}}>
-                      <div style={{fontSize: '0.7rem', color: '#ffffff', fontWeight: 700}}>Get it on</div>
-                      <div style={{fontSize: '0.9rem', fontWeight: 800, color: '#ffffff'}}>Google Play</div>
-                    </div>
-                  </button>
-                </div>
+                  {/* CTA Buttons */}
+                  <div className="flex gap-4 mb-12 flex-wrap">
+                    <button className="flex items-center justify-center gap-2 px-8 py-3 bg-gradient-to-br from-orange-400 to-orange-600 text-white border-none rounded-lg text-base font-semibold cursor-pointer transition-all duration-300 shadow-lg shadow-orange-500/3 hover:shadow-xl hover:shadow-orange-500/4 hover:-translate-y-0.5 whitespace-nowrap">
+                      <span>📱</span>
+                      <div className="flex flex-col items-start leading-tight">
+                        <div className="text-xs font-bold">Get it on</div>
+                        <div className="text-sm font-extrabold">Google Play</div>
+                      </div>
+                    </button>
+                      <Link href="https://m-gym.co.ke/signin" className="no-underline">
+                        <button className="flex items-center justify-center gap-2 px-8 py-3 bg-gradient-to-br from-orange-400 to-orange-600 text-white border-none rounded-lg text-base font-semibold cursor-pointer transition-all duration-300 shadow-lg shadow-orange-500/3 hover:shadow-xl hover:shadow-orange-500/4 hover:-translate-y-0.5 whitespace-nowrap">
+                          Get Started
+                        </button>
+                      </Link>
+                   </div>
 
                 {/* Key Benefits */}
-                <div style={{display: 'grid', gap: '1rem'}}>
-                  <div style={{fontWeight: 600, fontSize: '0.875rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'rgba(255,255,255,0.8)'}}>What you gain:</div>
-                  <div style={{display: 'grid', gap: '0.75rem'}}>
-                    <div style={{display: 'flex', gap: '0.75rem', alignItems: 'flex-start'}}>
-                      <div style={{width: 20, height: 20, borderRadius: '50%', background: 'rgba(204,85,0,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '2px', fontSize: '0.75rem'}}>✓</div>
+                <div className="grid gap-4">
+                  <div className="font-semibold text-sm uppercase tracking-wide text-white/8">What you gain:</div>
+                  <div className="grid gap-3">
+                    <div className="flex gap-3 items-start">
+                      <div className="w-5 h-5 rounded-full bg-orange-500/3 flex items-center justify-center flex-shrink-0 mt-0.5 text-xs">✓</div>
                       <div>
-                        <div style={{fontWeight: 600, color: '#fff', fontSize: '0.95rem'}}>Automated Payments</div>
-                        <div style={{fontSize: '0.85rem', color: 'rgba(255,255,255,0.75)'}}>Never chase payments again</div>
+                        <div className="font-semibold text-white text-base">Automated Payments</div>
+                        <div className="text-sm text-white/75">Never chase payments again</div>
                       </div>
                     </div>
-                    <div style={{display: 'flex', gap: '0.75rem', alignItems: 'flex-start'}}>
-                      <div style={{width: 20, height: 20, borderRadius: '50%', background: 'rgba(204,85,0,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '2px', fontSize: '0.75rem'}}>✓</div>
+                    <div className="flex gap-3 items-start">
+                      <div className="w-5 h-5 rounded-full bg-orange-500/3 flex items-center justify-center flex-shrink-0 mt-0.5 text-xs">✓</div>
                       <div>
-                        <div style={{fontWeight: 600, color: '#fff', fontSize: '0.95rem'}}>24/7 Member Portal</div>
-                        <div style={{fontSize: '0.85rem', color: 'rgba(255,255,255,0.75)'}}>Workouts, diet plans, attendance tracking</div>
+                        <div className="font-semibold text-white text-base">24/7 Member Portal</div>
+                        <div className="text-sm text-white/75">Workouts, diet plans, attendance tracking</div>
                       </div>
                     </div>
-                    <div style={{display: 'flex', gap: '0.75rem', alignItems: 'flex-start'}}>
-                      <div style={{width: 20, height: 20, borderRadius: '50%', background: 'rgba(204,85,0,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '2px', fontSize: '0.75rem'}}>✓</div>
+                    <div className="flex gap-3 items-start">
+                      <div className="w-5 h-5 rounded-full bg-orange-500/3 flex items-center justify-center flex-shrink-0 mt-0.5 text-xs">✓</div>
                       <div>
-                        <div style={{fontWeight: 600, color: '#fff', fontSize: '0.95rem'}}>Real-time Dashboard</div>
-                        <div style={{fontSize: '0.85rem', color: 'rgba(255,255,255,0.75)'}}>Track revenue, attendance, and growth</div>
+                        <div className="font-semibold text-white text-base">Real-time Dashboard</div>
+                        <div className="text-sm text-white/75">Track revenue, attendance, and growth</div>
                       </div>
                     </div>
                   </div>
@@ -110,32 +81,28 @@ export default function Home() {
 
             {/* Right: Phone Mockup Display */}
             <AnimatedSection direction="right" delay={0.2}>
-              <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', order: isMobile ? 1 : 2, position: 'relative'}}>
-                <div style={{position: 'relative', width: '100%', height: isMobile ? '300px' : '500px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                  {/* Main center phone - larger */}
-                  <div style={{position: 'absolute', width: isMobile ? '120px' : '200px', height: isMobile ? '240px' : '380px', zIndex: 3}}>
-                    <img src="/phone%20mockup.png" alt="Main app mockup" style={{width: '100%', height: '100%', objectFit: 'cover', borderRadius: '2rem', boxShadow: '0 30px 60px rgba(0,0,0,0.4), 0 0 1px rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.1)'}} />
-                  </div>
-
-                  {/* Left phone - offset */}
-                  {!isMobile && (
-                    <div style={{position: 'absolute', left: '0px', width: '130px', height: '260px', zIndex: 2, transform: 'rotate(-15deg) translateY(30px)'}}>
-                      <img src="/gym-Dashboard.png" alt="Secondary mockup 1" style={{width: '100%', height: '100%', objectFit: 'cover', borderRadius: '1.5rem', boxShadow: '0 20px 40px rgba(0,0,0,0.25)', border: '1px solid rgba(255,255,255,0.05)', opacity: 0.8, filter: 'brightness(0.85) contrast(1.1)'}} />
+              <div className="flex items-center justify-center order-1 md:order-2 relative">
+                  <div className="relative w-full h-[300px] md:h-[500px] flex items-center justify-center">
+                    {/* Main center phone - larger */}
+                    <div className="absolute w-[120px] md:w-[200px] h-[240px] md:h-[380px] z-30">
+                      <Image src="/phone%20mockup.png" alt="Main app mockup" fill className="object-contain rounded-3xl shadow-2xl shadow-black/4" />
                     </div>
-                  )}
 
-                   {/* Right phone - offset */}
-                   {!isMobile && (
-                     <div style={{position: 'absolute', right: '0px', width: '130px', height: '260px', zIndex: 2, transform: 'rotate(15deg) translateY(40px)'}}>
-                       <img src="/Gym-image.png" alt="Secondary mockup 2" style={{width: '100%', height: '100%', objectFit: 'cover', borderRadius: '1.5rem', boxShadow: '0 20px 40px rgba(0,0,0,0.25)', border: '1px solid rgba(255,255,255,0.05)', opacity: 0.8,filter: 'brightness(0.85) contrast(1.1)'}} />
+                    {/* Left phone - offset */}
+                    <div className="hidden md:block absolute left-0 w-[130px] h-[260px] z-20 -translate-x-5 translate-y-8 -rotate-12 will-change-transform">
+                      <Image src="/gym-Dashboard.png" alt="Secondary mockup 1" fill className="object-contain rounded-2xl shadow-xl shadow-black/25 opacity-80" />
+                    </div>
+
+                     {/* Right phone - offset */}
+                     <div className="hidden md:block absolute right-0 w-[130px] h-[260px] z-20 translate-x-5 translate-y-10 rotate-12 will-change-transform">
+                       <Image src="/Gym-image.png" alt="Secondary mockup 2" fill className="object-contain rounded-2xl shadow-xl shadow-black/25 opacity-80" />
                      </div>
-                   )}
 
-                  {/* Floating accent elements */}
-                  <div style={{position: 'absolute', width: isMobile ? '60px' : '100px', height: isMobile ? '60px' : '100px', background: 'rgba(204,85,0,0.1)', borderRadius: '50%', top: '-20px', right: '10%', filter: 'blur(30px)', pointerEvents: 'none'}}/>
-                  <div style={{position: 'absolute', width: isMobile ? '80px' : '120px', height: isMobile ? '80px' : '120px', background: 'rgba(204,85,0,0.1)', borderRadius: '50%', bottom: '-30px', left: isMobile ? '-40px' : '-10%', filter: 'blur(40px)', pointerEvents: 'none'}}/>
-                </div>
-              </div>
+                   {/* Floating accent elements */}
+                   <div className="absolute w-[60px] md:w-[100px] h-[60px] md:h-[100px] bg-orange-500/08 rounded-full -top-5 right-[10%] pointer-events-none"/>
+                   <div className="absolute w-[80px] md:w-[120px] h-[80px] md:h-[120px] bg-orange-500/08 rounded-full -bottom-8 left-[-40px] md:left-[-10%] pointer-events-none"/>
+                 </div>
+               </div>
             </AnimatedSection>
 
           </div>
