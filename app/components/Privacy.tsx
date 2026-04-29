@@ -1,10 +1,15 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 export default function Privacy() {
   const [isMobile, setIsMobile] = useState(false)
   const [activeSection, setActiveSection] = useState('data-protection')
+  const [sidebarFixed, setSidebarFixed] = useState(true)
+  const contentRef = useRef<HTMLDivElement>(null)
+  const sidebarRef = useRef<HTMLDivElement>(null)
+
+  const HEADER_HEIGHT = 100 // compact header height in px
 
   useEffect(() => {
     const handleResize = () => {
@@ -15,11 +20,28 @@ export default function Privacy() {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
+  // Switch sidebar from fixed to in-flow when near bottom
+  useEffect(() => {
+    if (isMobile) return
+    const handleScroll = () => {
+      if (!contentRef.current || !sidebarRef.current) return
+      const contentBottom = contentRef.current.getBoundingClientRect().bottom
+      const sidebarHeight = sidebarRef.current.offsetHeight
+      const viewportHeight = window.innerHeight
+      // When the bottom of the content area is about to go above the bottom of the sidebar
+      setSidebarFixed(contentBottom > HEADER_HEIGHT + sidebarHeight + 24)
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [isMobile])
+
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId)
     const element = document.getElementById(sectionId)
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      const offsetTop = element.offsetTop - HEADER_HEIGHT - 16
+      window.scrollTo({ top: offsetTop, behavior: 'smooth' })
     }
   }
 
@@ -36,113 +58,145 @@ export default function Privacy() {
   return (
     <div id="privacy" style={{ backgroundColor: '#ffd9b3', paddingTop: 0, paddingBottom: '3rem' }}>
 
-      {/* Header Section */}
-      <div style={{ backgroundColor: 'rgba(226, 232, 240, 0.7)', paddingTop: isMobile ? '2rem' : '3rem', paddingBottom: isMobile ? '2rem' : '3rem', marginBottom: '2rem', borderBottom: '1px solid #e5e7eb', position: 'fixed', top: 0, left: 0, right: 0, zIndex: 10 }}>
-        <div style={{ maxWidth: 1200, margin: '0 auto', padding: isMobile ? '0 1rem' : '0 2rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem', marginBottom: '1rem' }}>
+      {/* ── Compact Fixed Header ── */}
+      <div style={{
+        backgroundColor: 'white',
+        padding: isMobile ? '0.75rem 1rem' : '0.75rem 2rem',
+        borderBottom: '1px solid #e5e7eb',
+        position: 'fixed',
+        top: 0, left: 0, right: 0,
+        zIndex: 10,
+        height: `${HEADER_HEIGHT}px`,
+        boxSizing: 'border-box',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+      }}>
+        <div style={{ maxWidth: 1200, margin: '0 auto', width: '100%' }}>
+          {/* Top row: back + badge */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.35rem' }}>
             <button
               onClick={() => window.location.assign('/#home')}
               style={{
-                background: 'none',
-                border: 'none',
-                cursor: 'pointer',
-                fontSize: '1.5rem',
-                color: '#CC5500',
-                padding: '0.5rem',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                transition: 'background 0.2s',
+                background: 'none', border: 'none', cursor: 'pointer',
+                fontSize: '1.2rem', color: '#CC5500', padding: '0.25rem 0.5rem',
+                borderRadius: '50%', display: 'flex', alignItems: 'center',
+                justifyContent: 'center', transition: 'background 0.2s',
               }}
-              onMouseOver={(e) => (e.currentTarget.style.background = 'rgba(204,85,0,0.1)')}
-              onMouseOut={(e) => (e.currentTarget.style.background = 'none')}
+              onMouseOver={(e) => e.currentTarget.style.background = 'rgba(204,85,0,0.1)'}
+              onMouseOut={(e) => e.currentTarget.style.background = 'none'}
               aria-label="Go back"
             >
               ←
             </button>
-            <div style={{ display: 'inline-block', backgroundColor: '#d1f4e0', padding: '0.5rem 1rem', borderRadius: '20px' }}>
-              <span style={{ color: '#CC5500', fontSize: '0.85rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <div style={{ backgroundColor: '#d1f4e0', padding: '0.25rem 0.75rem', borderRadius: '20px' }}>
+              <span style={{ color: '#CC5500', fontSize: '0.78rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
                 🔒 Privacy Policy
               </span>
             </div>
           </div>
-          <h1 style={{ fontSize: isMobile ? '1.75rem' : '2.5rem', fontWeight: 800, color: '#1e293b', margin: '1rem 0', marginTop: 0 }}>
-            How M-Gym Protects and Manages Your Personal Data
-          </h1>
-          <p style={{ fontSize: isMobile ? '0.9rem' : '1rem', color: '#64748b', lineHeight: 1.6, maxWidth: 700, margin: '0 auto' }}>
-            This Privacy Policy outlines our commitment to protecting your personal information and explains how we collect, use, and safeguard your data when you use our services.
-          </p>
+
+          {/* Bottom row: title + subtitle */}
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
+            <h1 style={{ fontSize: isMobile ? '1.2rem' : '1.5rem', fontWeight: 800, color: '#1e293b', margin: 0, lineHeight: 1.2, textAlign: 'center' }}>
+              How M-Gym Protects and Manages Your Personal Data
+            </h1>
+            {!isMobile && (
+              <p style={{ fontSize: '0.82rem', color: '#94a3b8', margin: 0, lineHeight: 1.4, textAlign: 'center' }}>
+                This Privacy Policy outlines our commitment to protecting your personal information and explains how we collect, use, and safeguard your data when you use our services.
+              </p>
+            )}
+          </div>
         </div>
       </div>
 
-      {/* Main Content */}
-      <div style={{ maxWidth: 1200, margin: '0 auto', padding: isMobile ? '0 1rem' : '0 2rem', paddingTop: isMobile ? '1.5rem' : '18rem', position: 'relative' }}>
+      {/* ── Main Layout ── */}
+      <div
+        style={{
+          maxWidth: 1200,
+          margin: '0 auto',
+          padding: isMobile ? `${HEADER_HEIGHT + 16}px 1rem 0` : `${HEADER_HEIGHT + 24}px 2rem 0`,
+          display: !isMobile ? 'grid' : 'block',
+          gridTemplateColumns: !isMobile ? '260px 1fr' : 'none',
+          gap: !isMobile ? '2rem' : '0',
+          alignItems: 'start',
+        }}
+      >
 
 
 
-        {/* Mobile Navigation */}
-        {isMobile && (
-          <div style={{ marginBottom: '1.5rem', overflowX: 'auto', display: 'flex', gap: '0.5rem', paddingBottom: '0.5rem' }}>
-            {sections.map((section) => (
-              <button
-                key={section.id}
-                onClick={() => scrollToSection(section.id)}
-                style={{
-                  background: activeSection === section.id ? 'rgba(255,255,255,0.92)' : 'rgba(255,255,255,0.6)',
-                  border: '1px solid rgba(15,23,42,0.04)',
-                  padding: '0.5rem 0.75rem',
-                  borderRadius: '6px',
-                  fontSize: '0.75rem',
-                  fontWeight: activeSection === section.id ? 600 : 500,
-                  color: activeSection === section.id ? '#CC5500' : '#475569',
-                  cursor: 'pointer',
-                  whiteSpace: 'nowrap',
-                  transition: 'all 0.2s',
-                }}
-              >
-                {section.label}
-              </button>
-            ))}
-          </div>
-        )}
+         {/* Mobile Navigation */}
+         {isMobile && (
+           <div style={{marginBottom: '1.5rem', overflowX: 'auto', display: 'flex', gap: '0.5rem', paddingBottom: '0.5rem'}}>
+             {sections.map((section) => (
+               <button
+                 key={section.id}
+                 onClick={() => scrollToSection(section.id)}
+                 style={{
+                   background: activeSection === section.id ? 'rgba(255,255,255,0.92)' : 'rgba(255,255,255,0.6)',
+                   border: '1px solid rgba(15,23,42,0.04)',
+                   padding: '0.5rem 0.75rem',
+                   borderRadius: '6px',
+                   fontSize: '0.75rem',
+                   fontWeight: activeSection === section.id ? 600 : 500,
+                   color: activeSection === section.id ? '#CC5500' : '#475569',
+                   cursor: 'pointer',
+                   whiteSpace: 'nowrap',
+                   transition: 'all 0.2s',
+                 }}
+               >
+                 {section.label}
+               </button>
+             ))}
+           </div>
+         )}
 
+        {/* Desktop sidebar — fixed until near the bottom, then in-flow */}
         {!isMobile && (
-          <div style={{ position: 'sticky', top: '18rem', left: 'calc(50vw - 600px + 2rem)', width: '280px', zIndex: 5 }}>
-            <h3 style={{ fontSize: '0.85rem', fontWeight: 700, color: '#CC5500', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '1rem' }}>
-              Quick Navigation
-            </h3>
-            <div style={{ display: 'grid', gap: '0.75rem' }}>
-              {sections.map((section) => (
-                <button
-                  key={section.id}
-                  onClick={() => scrollToSection(section.id)}
-                  style={{
-                    background: activeSection === section.id ? 'rgba(255,255,255,0.92)' : 'rgba(255,255,255,0.6)',
-                    border: activeSection === section.id ? '2px solid rgba(15, 23, 42, 0.06)' : '1px solid rgba(15, 23, 42, 0.04)',
-                    padding: '0.75rem 1rem',
-                    borderRadius: '8px',
-                    textAlign: 'left',
-                    cursor: 'pointer',
-                    transition: 'all 0.2s',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.75rem',
-                    fontSize: '0.9rem',
-                    fontWeight: activeSection === section.id ? 600 : 500,
-                    color: activeSection === section.id ? '#CC5500' : '#475569',
-                  }}
-                >
-                  <span style={{ fontSize: '1.1rem' }}>{section.icon}</span>
-                  {section.label}
-                </button>
-              ))}
+          <div style={{ position: 'relative' }}>
+            <div
+              ref={sidebarRef}
+              style={
+                sidebarFixed
+                  ? { position: 'fixed', top: `${HEADER_HEIGHT + 24}px`, width: '260px', zIndex: 9 }
+                  : { position: 'relative', top: 'auto', width: '100%', zIndex: 9 }
+              }
+            >
+              <h3 style={{ fontSize: '0.78rem', fontWeight: 700, color: '#CC5500', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '0.75rem' }}>
+                Quick Navigation
+              </h3>
+              <div style={{ display: 'grid', gap: '0.6rem' }}>
+                {sections.map((section) => (
+                  <button
+                    key={section.id}
+                    onClick={() => scrollToSection(section.id)}
+                    style={{
+                      background: activeSection === section.id ? 'rgba(255,255,255,0.92)' : 'rgba(255,255,255,0.6)',
+                      border: activeSection === section.id ? '2px solid rgba(15,23,42,0.06)' : '1px solid rgba(15,23,42,0.04)',
+                      padding: '0.6rem 0.875rem',
+                      borderRadius: '8px',
+                      textAlign: 'left',
+                      cursor: 'pointer',
+                      transition: 'all 0.2s',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.6rem',
+                      fontSize: '0.85rem',
+                      fontWeight: activeSection === section.id ? 600 : 500,
+                      color: activeSection === section.id ? '#CC5500' : '#475569',
+                    }}
+                  >
+                    <span style={{ fontSize: '1rem' }}>{section.icon}</span>
+                    {section.label}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         )}
 
-        {/* Content Area */}
-        <div style={{ display: 'grid', gap: '1.5rem', marginLeft: !isMobile ? '320px' : '0' }}>
+        {/* Content area */}
+        <div ref={contentRef} style={{ display: 'grid', gap: '1.5rem' }}>
 
           {/* Data Protection */}
           <div id="data-protection" style={{ backgroundColor: 'rgba(226,232,240,0.7)', padding: isMobile ? '1.5rem' : '2rem', borderRadius: '12px', border: '1px solid #e5e7eb', scrollMarginTop: '2rem' }}>

@@ -6,7 +6,7 @@ export default function Faqs() {
   return (
     <section id="faq" className="bg-white/62 px-0.5 py-8 md:p-14 relative overflow-hidden w-full box-border">
 
-      <div className="max-w-7xl mx-auto bg-orange-50 p-8 rounded-2xl relative z-10">
+       <div className="max-w-7xl mx-auto bg-orange-100 p-8 rounded-2xl relative z-10">
         <div className="w-full max-w-6xl mx-auto">
         <AnimatedSection direction="up" delay={0}>
           <div className="mb-12">

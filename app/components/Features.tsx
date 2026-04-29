@@ -10,7 +10,7 @@ export default function Features() {
       id="features"
       className="px-0.5 py-8 md:p-14 w-full box-border bg-white/62"
     >
-      <div className="max-w-7xl mx-auto rounded-2xl bg-orange-50 px-0 py-8 md:p-8">
+       <div className="max-w-7xl mx-auto rounded-2xl bg-orange-100 px-0 py-8 md:p-8">
         {/* Header */}
         <AnimatedSection direction="none" delay={0}>
           <div className="flex justify-between items-start gap-4 mb-7">

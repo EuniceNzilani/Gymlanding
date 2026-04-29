@@ -6,7 +6,7 @@ export default function ContactUs() {
   return (
     <section id="contact" className="bg-white/62 py-8 px-0.5 md:p-14 relative overflow-hidden w-full box-border">
 
-      <div className="max-w-7xl mx-auto bg-orange-50 py-2 px-0 md:p-8 rounded-2xl text-center relative z-10">
+       <div className="max-w-7xl mx-auto bg-orange-100 py-2 px-0 md:p-8 rounded-2xl text-center relative z-10">
         <div className="w-full max-w-6xl mx-auto">
         {/* Header */}
         <AnimatedSection direction="none" delay={0}>

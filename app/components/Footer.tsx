@@ -59,41 +59,6 @@ export default function Footer() {
           </div>
         </AnimatedSection>
 
-        {showSupport && (
-          <div onClick={() => setShowSupport(false)} className="fixed inset-0 bg-black/45 flex items-center justify-center z-60 p-4 md:p-0">
-            <div onClick={(e) => e.stopPropagation()} className="w-full md:w-[min(520px,95%)] bg-green-50 rounded-lg md:rounded-xl p-5 md:p-4 shadow-2xl shadow-gray-900/35 max-h-[90vh] md:max-h-auto overflow-y-auto md:overflow-visible">
-              <div className="flex justify-between items-center mb-2">
-                <h3 className="m-0 text-green-800 text-lg md:text-xl">Contact Us</h3>
-                <button onClick={() => setShowSupport(false)} aria-label="Close support" className="bg-transparent border-none text-lg md:text-xl cursor-pointer text-green-800 p-2"><X size={20} className="text-black align-middle" /></button>
-              </div>
-              <div className="grid gap-3">
-                <div className="flex items-center gap-3 text-green-800">
-                  <Phone className="text-xl flex-shrink-0 text-black align-middle" />
-                  <a href="tel:+254111014100" className="text-green-800 no-underline text-sm md:text-base">+254111014100</a>
-                </div>
-                <div className="flex items-center gap-3 text-green-800">
-                  <Mail className="text-lg flex-shrink-0 text-black align-middle" />
-                  <a href="mailto:support@mzalendofiber.co.ke" className="text-green-800 no-underline text-sm md:text-base break-words">support@mzalendofiber.co.ke</a>
-                </div>
-                <div className="flex items-center gap-3 text-green-800">
-                  <MapPin className="text-lg flex-shrink-0 text-black align-middle" />
-                  <span className="text-sm md:text-base">Nairobi, Kenya</span>
-                </div>
-                <div className="mt-3 bg-green-100 text-green-800 p-3 rounded-xl shadow-sm">
-                  <div className="font-bold mb-2 flex items-center gap-2 text-sm md:text-base">
-                    <span className="w-2.5 h-2.5 rounded-full bg-green-500 flex-shrink-0"></span>
-                    <span>Opening Hours</span>
-                  </div>
-                  <ul className="list-none p-0 m-0 grid gap-1 text-sm md:text-base text-green-800">
-                    <li><strong>Mon-Fri:</strong> 8:00 AM - 6:00 PM</li>
-                    <li><strong>Sat:</strong> 9:00 AM - 2:00 PM</li>
-                    <li><strong>Sun:</strong> Closed</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
     </footer>
   )
