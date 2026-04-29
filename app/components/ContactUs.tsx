@@ -6,7 +6,7 @@ export default function ContactUs() {
   return (
     <section id="contact" className="bg-white/62 py-8 px-0.5 md:p-14 relative overflow-hidden w-full box-border">
 
-       <div className="max-w-7xl mx-auto bg-orange-100 py-2 px-0 md:p-8 rounded-2xl text-center relative z-10">
+       <div className="max-w-7xl mx-auto bg-orange-100 py-2 px-6 md:p-8 rounded-2xl text-center relative z-10">
         <div className="w-full max-w-6xl mx-auto">
         {/* Header */}
         <AnimatedSection direction="none" delay={0}>
@@ -22,7 +22,7 @@ export default function ContactUs() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div>
             <AnimatedItem delay={0.1}>
-              <div className="bg-white rounded-lg py-2 px-0.25 md:p-2 flex flex-col gap-2 mb-3">
+              <div className="bg-white rounded-lg py-2 p-6 md:p-2 flex flex-col gap-2 mb-3">
                 <div className="flex items-center gap-2">
                   <span aria-hidden className="bg-red-900/4 rounded-full p-2 text-orange-400">📞</span>
                   <div className="font-bold text-gray-900">Phone</div>
@@ -32,7 +32,7 @@ export default function ContactUs() {
               </div>
             </AnimatedItem>
             <AnimatedItem delay={0.2}>
-              <div className="bg-white rounded-lg py-2 px-0.25 md:p-2 flex flex-col gap-2 mb-3">
+              <div className="bg-white rounded-lg py-2 p-6 md:p-2 flex flex-col gap-2 mb-3">
                 <div className="flex items-center gap-2">
                   <span aria-hidden className="bg-red-900/4 rounded-full p-2 text-red-500">💬</span>
                   <div className="font-bold text-gray-900">WhatsApp</div>
@@ -42,7 +42,7 @@ export default function ContactUs() {
               </div>
             </AnimatedItem>
             <AnimatedItem delay={0.3}>
-              <div className="bg-white rounded-lg py-2 px-0.25 md:p-2 flex flex-col gap-2 mb-3">
+              <div className="bg-white rounded-lg py-2 p-6 md:p-2 flex flex-col gap-2 mb-3">
                 <div className="flex items-center gap-2">
                   <span aria-hidden className="bg-red-900/4 rounded-full p-2 text-red-500">✉️</span>
                   <div className="font-bold text-gray-900">Email</div>
@@ -53,7 +53,7 @@ export default function ContactUs() {
             </AnimatedItem>
           </div>
           <div>
-            <div className="bg-transparent rounded-xl p-0 md:p-3">
+            <div className="bg-transparent rounded-xl p-6 md:p-3">
               <h3 className="flex items-center gap-2 text-gray-900 mb-3"><span aria-hidden className="text-orange-400">✉️</span> Send us a Message</h3>
               <form onSubmit={(e) => { e.preventDefault(); console.log('contact form submitted') }} className="grid grid-cols-1 md:grid-cols-2 gap-3 w-full box-border">
                 <input aria-label="Full name" placeholder="Full name" required className="p-3 rounded-lg border border-gray-100 bg-gray-50/1 shadow-sm shadow-black/04 w-full box-border text-gray-900" />

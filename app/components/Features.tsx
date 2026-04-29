@@ -10,7 +10,7 @@ export default function Features() {
       id="features"
       className="px-0.5 py-8 md:p-14 w-full box-border bg-white/62"
     >
-       <div className="max-w-7xl mx-auto rounded-2xl bg-orange-100 px-0 py-8 md:p-8">
+       <div className="max-w-7xl mx-auto rounded-2xl bg-orange-100 px-6 py-8 md:p-8">
         {/* Header */}
         <AnimatedSection direction="none" delay={0}>
           <div className="flex justify-between items-start gap-4 mb-7">
@@ -22,7 +22,7 @@ export default function Features() {
         </AnimatedSection>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 items-stretch w-full box-border">
           <AnimatedItem direction="none" delay={0}>
-            <div className="bg-gradient-to-b from-white/35 to-white/25 bg-orange-500/02 backdrop-blur-sm p-5 md:p-6 rounded-xl shadow-lg shadow-gray-900/12 border border-white/16 text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/20 hover:bg-gradient-to-b hover:from-orange-50/50 hover:to-orange-100/50 min-h-[180px] flex flex-col group">
+            <div className="bg-gradient-to-b from-white/35 to-white/25 bg-orange-500/02 backdrop-blur-sm p-6 rounded-xl shadow-lg shadow-gray-900/12 border border-white/16 text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/20 hover:bg-gradient-to-b hover:from-orange-50/50 hover:to-orange-100/50 min-h-[180px] flex flex-col group">
               <BarChart3 className="text-3xl mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3" />
               <h3 className="m-0 mb-2 text-lg font-extrabold transition-colors duration-300 group-hover:text-orange-600">Dashboard</h3>
               <p className="mt-2 text-sm leading-relaxed">Track revenue and growth with charts. Monitor your gym performance in real-time from anywhere.</p>

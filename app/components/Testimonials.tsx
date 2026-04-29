@@ -26,7 +26,7 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="bg-white/62 px-0.5 py-8 md:p-14 relative overflow-hidden w-full box-border">
 
-      <div className="max-w-7xl mx-auto bg-orange-200 px-0 py-8 md:p-8 rounded-2xl text-center relative z-10">
+      <div className="max-w-7xl mx-auto bg-orange-200 px-6 py-8 md:p-8 rounded-2xl text-center relative z-10">
         <div className="w-full max-w-6xl mx-auto">
         <AnimatedSection direction="none" delay={0}>
           <div className="relative">
@@ -34,19 +34,19 @@ export default function Testimonials() {
               <h2 className="text-2xl md:text-3xl mb-2 text-gray-900 font-extrabold">What Gym Owners Say</h2>
               <p className="text-gray-600 mb-8">Real results from real businesses using M-Gym.</p>
             </div>
-            <button className="absolute top-0 right-0 bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors">Add a Review</button>
+            <button className="hidden md:absolute md:top-0 md:right-0 bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors">Add a Review</button>
           </div>
         </AnimatedSection>
 
         <AnimatedSection direction="none" delay={0}>
         <div className="flex justify-center">
-          <div className="bg-transparent rounded-xl px-0 py-5 md:p-5 text-left max-w-full md:max-w-[760px]">
+          <div className="bg-transparent rounded-xl px-6 py-5 md:p-5 text-left max-w-full md:max-w-[760px]">
             <div className="flex flex-col md:flex-row gap-0 md:gap-0">
               {items.slice(0, 2).map((item, idx) => {
                 const isLeft = idx === 0
                 const cardBg = isLeft ? 'bg-orange-50' : 'bg-orange-100'
                 const cardRadius = isLeft ? 'rounded-l-xl md:rounded-r-none' : 'rounded-r-xl md:rounded-l-none'
-                const cardPadding = 'px-0.25 py-3 md:p-4'
+                const cardPadding = 'p-6 py-3 md:p-4'
                 const nameFontSize = isLeft ? 'text-base md:text-lg' : 'text-sm md:text-base'
                 const roleFontSize = isLeft ? 'text-sm md:text-base' : 'text-xs md:text-sm'
 
@@ -95,6 +95,9 @@ export default function Testimonials() {
         <div className="flex gap-3 justify-center mt-4">
           <button aria-label="Previous testimonials" onClick={handlePrev} className="bg-transparent rounded-lg w-10 h-10 flex items-center justify-center cursor-pointer">&lt;</button>
           <button aria-label="Next testimonials" onClick={handleNext} className="bg-transparent rounded-lg w-10 h-10 flex items-center justify-center cursor-pointer">&gt;</button>
+        </div>
+        <div className="md:hidden flex justify-center mt-4">
+          <button className="bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors">Add a Review</button>
         </div>
         </AnimatedSection>
         </div>
